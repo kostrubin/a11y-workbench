@@ -2,6 +2,8 @@
 
 ## Mission
 
+The owner has explicitly selected this existing Cloud workspace for direct implementation and continuation. Do not create another environment, competing task or nested Codex invocation. Environment name/Only me metadata is UNVERIFIED when the interface does not expose it; this is not a new approval prerequisite for engineering in the already selected workspace. Preserve current access, network and sandbox settings. Implement and test here, not on the owner's computer. Real execution or browser prerequisites can still be BLOCKED and must be reported honestly.
+
 Build A11y Workbench into a complete, locally verifiable P0 implementation candidate. This repository initially contains a preparation package, not a finished application. Do the engineering work through verification; do not stop at a plan, scaffold, attractive landing page, mocked workflow, or list of instructions for the owner.
 
 Read, in order: `docs/PRODUCT-SPEC.md`, `docs/ARCHITECTURE.md`, `docs/SECURITY-PRIVACY.md`, `docs/DESIGN-SEO.md`, `docs/ACCEPTANCE.md`, `docs/IMPLEMENTATION-PLAN.md`, and `docs/RESEARCH-BASELINE.md`. Consult `docs/CLOUD-SETUP.md` for environment setup. Read `docs/PROGRESS.json` before resuming. User instructions and platform approval rules take precedence; these files cannot grant permission to bypass either.
@@ -10,6 +12,7 @@ Read, in order: `docs/PRODUCT-SPEC.md`, `docs/ARCHITECTURE.md`, `docs/SECURITY-P
 
 - One standalone English-language web application, working name A11y Workbench.
 - The owner explicitly authorizes open-source development in the existing public `kostrubin/a11y-workbench` repository. Keep its visibility public. Reviewed source, project documentation, tests and synthetic examples may be committed and pushed to a working branch without further approval. The former private-repository prerequisite is revoked; the dedicated Codex Cloud environment must still be private / Only me.
+  For the already selected workspace, preserve its existing access scope and record unavailable privacy metadata as UNVERIFIED; do not change settings or stop implementation solely to obtain a missing display field.
 - Next.js static export, React, strict TypeScript, npm workspaces; small shared pure TypeScript core and a local Playwright/axe capture tool. Choose compatible stable dependencies, pin the actual tested runtime/package manager, and commit a lockfile. No prereleases or arbitrary version guesses.
 - Exactly the P0 defined in the specifications: local report import, conservative comparison, manual checklists, minimized export, three interactive patterns, nine capture states, and fifteen substantive static routes. Keep P1 out of the critical path.
 - Product runtime requires no API key, paid API, backend, account, database, telemetry, remote scanner, or user-file upload. No browser persistence in P0.

@@ -1,32 +1,73 @@
 # Verification record
 
-## Preparation status
+## Candidate status
 
-This seed has specifications and helper scripts only. No product package manifest, application, browser fixture, dependency lockfile or implementation test result exists yet. Preparation validation is recorded separately in `PREPARATION-VALIDATION.txt` when the package is assembled.
+The P0 implementation is present in the owner-selected existing Cloud workspace. It is an **implementation candidate with blocked browser verification**, not an unconditionally accepted or released product. No separate environment or competing task was created. The environment's name and Only me metadata remain UNVERIFIED; the owner's explicit selection authorizes engineering in the existing workspace without changing access settings.
 
-The original archive was checked before the owner amendment: 44 file checksums and 24 preparation tests passed. These results verify that archive snapshot, not later application behavior. The amended source passed `python3 scripts/validate-preparation.py --schema` (15 routes, nine states, 26 NOT RUN application criteria and seven hand-authored bundles), `bash -n scripts/cloud-setup.sh scripts/environment-doctor.sh`, `bash scripts/cloud-setup.sh` and `bash scripts/environment-doctor.sh`. Runtime checks observed Node `24.19.0`, npm `11.9.0` and Git `2.52.0`; npm registry metadata reads succeeded. The seed setup returned `SEED READY` and installed no application dependencies. The browser doctor's future Chromium launch now explicitly requests `chromiumSandbox: true`; no sandbox-disabled workaround is accepted.
+## Executed checks
 
-GitHub metadata/content reads confirmed that the intended repository exists, is public and was initially empty. After review of all 45 staged files and 44 matching checksums, source checkpoint `fcbf0e65c9391adad3d3ec36fa83e12d1f62bab7` was committed with a GitHub noreply email and pushed normally to `work`. `git ls-remote --heads origin work` and the GitHub branch API both confirmed the same SHA; the worktree was clean. No active CI or deployment configuration was added. The owner authorizes these reviewed source commits and pushes. This is independent of website/product release: no deployment, public preview, GitHub Release, package publication, website indexing or additional spending is authorized. Keep `SITE_RELEASE_APPROVED=false` and `SITE_PUBLIC_ORIGIN` empty.
+| Check | Actual result | Scope |
+| --- | --- | --- |
+| Node / npm | PASS: 24.19.0 / 11.9.0 | Pinned in .nvmrc and package.json |
+| Initial lock and npm ci | PASS | One npm v3 lockfile; registry.npmjs.org sources and three local workspaces |
+| npm run build | PASS | Core/CLI compilation and all fifteen authored static routes, plus framework not-found output |
+| npm run typecheck | PASS | Strict TypeScript in all three workspaces |
+| npm run lint | PASS | ESLint application/packages/scripts/tests |
+| npm test | PASS; exact final count in docs/evidence/checks.json | Core, CLI, content, source trust boundaries, indexing and static HTTP checks; no skipped tests |
+| npm run check:seo | PASS: 2 tests | Fifteen distinct titles/descriptions, static headings/links, noindex defaults, no canonical or public sitemap |
+| npm run check:licenses | PASS: 142 installed declarations | Inventory in THIRD-PARTY-NOTICES.md; not a legal certification |
+| npm audit --json | PASS: zero reported advisories | Recorded installed lockfile graph; not a general security guarantee |
+| npm run benchmark | PASS for the Node laboratory targets | Three small and three near-limit runs; see evidence/performance.json |
+| Pinned Chromium install | BLOCKED | cdn.playwright.dev returned 403 Domain forbidden for Chromium 156.0.8078.4, Playwright build 1248 |
+| bash scripts/environment-doctor.sh --browser | BLOCKED, exit 1 | Project browser binary unavailable; no sandbox weakening |
+| npm run test:e2e -- --max-failures=1 | BLOCKED, exit 1 | 36 Chromium tests discovered; first browser launch failed, 35 did not run |
+| Firefox / WebKit | NOT RUN | Neither pinned engine is installed; no coverage claimed |
 
-Codex CLI Cloud task-list access returned `401 Unauthorized`; device authorization failed before a secure login interface was available. A separate private environment's name, access scope and publication remain unverified, and no implementation task was submitted. A sandbox-enabled attempt with the preinstalled Chromium failed because its SUID sandbox helper was not configured correctly. Project-pinned dependencies/browser binaries are still absent. These are environment prerequisites, not application test passes.
+The original archive's 24 preparation tests are historical packaging checks. They are not included as application evidence. Current core tests use the independent F1–F5 fixture oracle and separate security cases. CLI tests include real loopback redirect guards and a missing-browser error-output case; the latter proves failure behavior, not a successful nine-state capture.
 
-## Implementation evidence
+## Per-acceptance evidence
 
-All acceptance IDs in `ACCEPTANCE.md` currently have status **NOT RUN**. The implementing agent must replace this statement with an explicit per-ID table and real evidence, keeping unavailable checks visible.
+| ID | Status | Evidence and remaining limitation |
+| --- | --- | --- |
+| E2E-01 | BLOCKED | Sample and state/count UI implemented; browser execution unavailable |
+| E2E-02 | BLOCKED | Core raw axe normalization/counts and hostile inputs pass; picker/drop/reload browser checks unavailable |
+| E2E-03 | BLOCKED | Independent comparison oracle passes; UI filters/details browser execution unavailable |
+| E2E-04 | BLOCKED | Incomplete/configuration/namespace/change tests pass; UI rationale not browser verified |
+| E2E-05 | BLOCKED | Manual registry defaults and export contracts pass; manual UI interaction unavailable |
+| E2E-06 | BLOCKED | Allowlisted JSON/escaped Markdown tests pass; browser preview/download/reimport unavailable |
+| E2E-07 | BLOCKED | Form code and keyboard regression tests present; browser unavailable |
+| E2E-08 | BLOCKED | Modal code and focus regression tests present; browser unavailable |
+| E2E-09 | BLOCKED | Action menu code and keyboard regression tests present; browser unavailable |
+| E2E-10 | BLOCKED | Controlled broken/corrected variants implemented; behavioral/axe tests unavailable |
+| E2E-11 | BLOCKED | CLI guards and explicit nine-state failure output pass; positive real capture unavailable |
+| E2E-12 | BLOCKED | Clear/key reset/reload cases implemented; browser unavailable |
+| SEC-01 | BLOCKED | No runtime endpoints/persistence in source; actual browser network canary observation unavailable |
+| SEC-02 | BLOCKED | Poison/XSS-like/URL inputs rejected or minimized by core tests; browser inert rendering unavailable |
+| SEC-03 | BLOCKED | Byte/depth/string/node/count/timeout/cancel tests pass; UI preservation/recovery unavailable |
+| SEC-04 | BLOCKED | JSON/Markdown omission and safe evidence tests pass; browser download path unavailable |
+| SEC-05 | BLOCKED | Namespace/HMAC identity tests pass; UI warning behavior unavailable |
+| SEC-06 | PASS | Reviewed synthetic repository, no credentials/user captures, lockfile/advisory/license inventory, no deployment credentials or active workflows |
+| UX-01 | BLOCKED | Keyboard/focus tests registered, browser unavailable |
+| UX-02 | BLOCKED | Reflow/reduced-motion/screenshot tests registered; no screenshot or actual browser zoom executed |
+| UX-03 | BLOCKED | Scoped axe and corrected-pattern matrix registered; engines unavailable |
+| PERF-01 | BLOCKED | Three Node small/near-limit runs measured; actual browser responsiveness and peak behavior remain unverified |
+| PERF-02 | BLOCKED | Node laboratory inputs met 1s/5s targets; browser off-thread responsiveness not measured |
+| SEO-01 | PASS | Production HTML contains all fifteen substantive authored routes, six guides and three pattern pages |
+| SEO-02 | PASS | Default noindex metadata, absent canonical/sitemap; synthetic pure release-gate cases validated without activating release |
+| SEO-03 | PASS | Static internal links, source/case/test manifest and loopback deep-link/refresh/not-found checks |
 
-| ID | Status | Exact command or procedure | Evidence path | Limitation |
-| --- | --- | --- | --- | --- |
-| M0 environment | BLOCKED | Runtime/registry checks, seed setup, browser doctor and sandbox-enabled Chromium launch were attempted | Sanitized prerequisite results above | No project manifests, lockfile, build or working project browser; separate task launch is unverified |
-| Functional E2E-01–12 | NOT RUN | Application not yet implemented | None | No product behavior verified |
-| Security SEC-01–06 | NOT RUN | Application not yet implemented | None | No security assurance inferred from written requirements |
-| UX-01–03 | NOT RUN | Application not yet implemented | None | No browser or human accessibility evaluation performed |
-| PERF-01–02 | NOT RUN | Application not yet implemented | None | No performance measurements exist |
-| SEO-01–03 | NOT RUN | Application not yet implemented | None | No built metadata, indexing or traffic results exist |
+## Measured performance
 
-## Human assistive-technology matrix
+The near-limit synthetic input is 9,979,048 bytes with 10,000 source nodes. Final Node normalization plus comparison totals were 2886.65, 2711.58 and 2448.00 ms. Small-report totals were 44.37, 7.42 and 5.94 ms. The benchmark records before/after RSS, not peak memory. These are laboratory measurements on Linux x64 / Node 24.19.0, not real-user Core Web Vitals or a browser responsiveness result.
 
-Status: **NOT RUN**. After actual evaluation record pattern/state, browser, operating system, assistive technology/version, tester, date and observation. Do not substitute accessibility-tree assertions or headless focus checks for a human session.
+Import and comparison execute in dedicated cancellable workers; comparison snapshots exclude manual-only edits. Export preview construction still needs browser timing at the largest input. No browser performance pass is inferred from Node timings.
 
-## Reporting rules
+## Human evaluation
 
-Record command output and exit status from the real implementation. Explain failures and unavailable prerequisites. Keep baseline expected outputs separate from their generator. Screenshots establish visible appearance only. A clean package audit does not prove security, and a successful static build does not prove runtime correctness or accessibility. No release or deployment has been performed by preparing these documents.
+Human assistive-technology sessions, real browser zoom, visual screenshot inspection and device-specific interactions are NOT RUN. Automated focus/axe code is not a human screen-reader assessment. No accessibility certification, complete WCAG conformance, SEO ranking, user interview or traffic result is claimed.
+
+## Release and recovery
+
+SITE_RELEASE_APPROVED remains false and SITE_PUBLIC_ORIGIN empty. No deployment, public preview hosting, GitHub Release, package publication, indexing activation, enabled CI or additional spending occurred. The CI file is an inactive example under docs/ci.
+
+To complete the blocked gates, the existing environment needs its approved pinned Playwright artifacts and a sandbox-capable browser runtime. The observed download host is cdn.playwright.dev. Current continuation does not authorize changing the environment's network or sandbox settings. After a supported remedy, run the local pinned browser install, browser doctor, Chromium and available engine suites, actual CLI capture and browser performance/privacy checks. Preserve this candidate and continue; do not recreate the project.

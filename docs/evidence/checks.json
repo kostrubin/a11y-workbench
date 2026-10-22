@@ -1,0 +1,109 @@
+{
+  "status": "IMPLEMENTATION_PRESENT_BROWSER_ACCEPTANCE_BLOCKED",
+  "runtime": {
+    "node": "24.19.0",
+    "npm": "11.9.0",
+    "next": "16.4.2",
+    "react": "19.3.1",
+    "typescript": "6.0.3",
+    "playwright": "1.64.1",
+    "axeCore": "4.14.0"
+  },
+  "commands": {
+    "npm ci": {
+      "status": "PASS"
+    },
+    "npm run build": {
+      "status": "PASS",
+      "authoredStaticRoutes": 15
+    },
+    "npm run typecheck": {
+      "status": "PASS"
+    },
+    "npm run lint": {
+      "status": "PASS"
+    },
+    "npm test": {
+      "status": "PASS",
+      "tests": 49,
+      "pass": 49,
+      "fail": 0,
+      "skipped": 0,
+      "categories": {
+        "core": 26,
+        "cli": 13,
+        "content": 6,
+        "security": 2,
+        "seo": 2
+      }
+    },
+    "npm run check:seo": {
+      "status": "PASS",
+      "tests": 2
+    },
+    "npm run check:licenses": {
+      "status": "PASS",
+      "installedDeclarations": 142
+    },
+    "npm audit --json": {
+      "status": "PASS",
+      "reportedVulnerabilities": {
+        "info": 0,
+        "low": 0,
+        "moderate": 0,
+        "high": 0,
+        "critical": 0,
+        "total": 0
+      }
+    },
+    "npm run benchmark": {
+      "status": "PASS_FOR_NODE_LAB_TARGETS",
+      "evidence": "performance.json"
+    },
+    "pinned browser install": {
+      "status": "BLOCKED",
+      "host": "cdn.playwright.dev",
+      "httpStatus": 403,
+      "reason": "Domain forbidden",
+      "browser": "Chromium 156.0.8078.4 build 1248"
+    },
+    "browser doctor": {
+      "status": "BLOCKED",
+      "exit": 1,
+      "sandboxEnabled": true
+    },
+    "npm run test:e2e -- --max-failures=1": {
+      "status": "BLOCKED_BEFORE_UI_EXECUTION",
+      "exit": 1,
+      "chromiumTests": 36,
+      "failedAtLaunch": 1,
+      "didNotRun": 35,
+      "reason": "Pinned Chromium executable is missing"
+    }
+  },
+  "browserTestDefinitions": {
+    "chromium": 36,
+    "firefox": 24,
+    "webkit": 24
+  },
+  "browserEnginesInstalled": {
+    "chromium": false,
+    "firefox": false,
+    "webkit": false
+  },
+  "humanAT": "NOT RUN",
+  "screenshots": "NOT RUN",
+  "realAxeCapture": "BLOCKED",
+  "browserPrivacyAndResponsiveness": "BLOCKED",
+  "siteReleaseApproved": false,
+  "sitePublicOrigin": "",
+  "activeCI": false,
+  "deployment": false,
+  "packagePublication": false,
+  "extraSpending": false,
+  "limitations": [
+    "Source/Node checks do not establish actual browser behavior or human accessibility.",
+    "No security/network/sandbox settings changed.",
+    "Environment display name and Only me metadata UNVERIFIED; owner selected the existing executor."
+  ]
+}

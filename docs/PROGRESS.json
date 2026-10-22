@@ -1,32 +1,57 @@
 {
   "project": "a11y-workbench",
   "preparationVersion": "1.1",
-  "phase": "prepared-not-implemented",
-  "lastCompletedMilestone": null,
-  "completedAcceptanceIds": [],
-  "nextAction": "Continue authenticated private Cloud environment preparation on branch work, submit the complete current implementation prompt and verify its task URL/running status before beginning M0. The reviewed public-source preparation checkpoint has already been pushed.",
-  "implementationChecksRun": [],
-  "knownBlockers": [
-    "Codex CLI Cloud task-list request returned 401 Unauthorized; device authorization failed before a secure login interface was created.",
-    "A managed cloud workspace runs, but environment name, Only me access and publication are unverified; available tools do not manage or publish Cloud environments.",
-    "Project manifests, lockfile and pinned Playwright browser are not yet created; preinstalled Chromium failed a sandbox-enabled launch because its SUID sandbox helper is not configured correctly."
+  "phase": "implemented-browser-verification-blocked",
+  "lastCompletedMilestone": "M4",
+  "completedAcceptanceIds": [
+    "SEC-06",
+    "SEO-01",
+    "SEO-02",
+    "SEO-03"
   ],
-  "pendingOwnerDecisions": [],
+  "nextAction": "Preserve the work branch and complete browser acceptance in the same owner-selected Cloud workspace after a supported browser prerequisite remedy; do not create another environment/task, change network/sandbox settings without an owner decision, or claim blocked UI checks passed.",
+  "implementationChecksRun": [
+    "npm ci: PASS",
+    "npm run build: PASS (core/CLI plus 15 authored static routes)",
+    "npm run typecheck: PASS",
+    "npm run lint: PASS",
+    "npm test: 49 PASS, 0 FAIL, 0 SKIPPED",
+    "npm run check:seo: 2 PASS",
+    "npm run check:licenses: 142 installed declarations match",
+    "npm audit --json: zero reported vulnerabilities",
+    "npm run benchmark: 3 small and 3 near-limit Node runs meet laboratory targets",
+    "pinned Chromium install: BLOCKED by CDN 403",
+    "browser doctor: BLOCKED, exit 1",
+    "Chromium E2E gate: first launch failed due missing binary; 35 tests did not run"
+  ],
+  "knownBlockers": [
+    "Pinned Playwright Chromium build 1248 cannot download from cdn.playwright.dev: 403 Domain forbidden. No sandbox/network changes were made.",
+    "Actual browser UI/keyboard/axe/privacy/performance checks, positive nine-state capture and human AT evidence remain unavailable."
+  ],
+  "pendingOwnerDecisions": [
+    "Completing browser gates needs a supported pinned-browser remedy; any required environment network/access change remains an owner security decision."
+  ],
   "repository": {
     "url": "https://github.com/kostrubin/a11y-workbench",
     "visibility": "public",
     "workingBranch": "work",
-    "verifiedSourceCheckpoint": "fcbf0e65c9391adad3d3ec36fa83e12d1f62bab7",
     "sourcePushVerified": true,
     "sourcePublicationAuthorized": true,
-    "allowedContent": ["reviewed project source", "project documentation", "tests", "reviewed synthetic examples"],
+    "allowedContent": [
+      "reviewed project source",
+      "project documentation",
+      "tests",
+      "reviewed synthetic examples"
+    ],
     "ordinaryWorkingBranchCommitsAndPushesAuthorized": true,
     "visibilityChangeAuthorized": false,
     "forcePushAuthorized": false,
-    "branchProtectionBypassAuthorized": false
+    "branchProtectionBypassAuthorized": false,
+    "preparationCheckpoint": "be3b41716db92961d0ec32e4667606770120ed4e",
+    "currentImplementationCheckpoint": "Use git HEAD on work; private execution references remain outside public source."
   },
   "cloudEnvironmentPrivacyRequirement": "Only me",
-  "implementationTaskStatus": "NOT SUBMITTED",
+  "implementationTaskStatus": "EXISTING_WORKSPACE_CHECKPOINT_NO_SEPARATE_TASK_CREATED",
   "implementationTaskUrl": null,
   "releaseAuthorized": false,
   "publicDeploymentCreated": false,
@@ -36,5 +61,21 @@
   "websiteIndexingAuthorized": false,
   "additionalSpendingAuthorized": false,
   "ownerPolicyUpdatedAt": "2026-10-21",
-  "preparedAt": "2026-10-21"
+  "preparedAt": "2026-10-21",
+  "implementationVersion": "0.1.0",
+  "executionMode": "owner-selected-existing-cloud-workspace",
+  "environmentMetadata": {
+    "name": "UNVERIFIED",
+    "onlyMe": "UNVERIFIED",
+    "accessSettingsChanged": false
+  },
+  "milestones": {
+    "M0": "PARTIAL: manifests, lockfile, npm ci and static build pass; browser launch BLOCKED",
+    "M1": "PASS: strict core and independent fixtures verified",
+    "M2": "IMPLEMENTED; browser journey verification BLOCKED",
+    "M3": "IMPLEMENTED; positive browser/capture verification BLOCKED",
+    "M4": "PASS: authored static routes/content/default indexing gates",
+    "M5": "PARTIAL: non-browser security, audit/license and Node laboratory measurements pass; browser/AT gates BLOCKED or NOT RUN",
+    "M6": "Documented reviewable source checkpoint with explicit blocked evidence; no release"
+  }
 }

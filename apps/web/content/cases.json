@@ -1,0 +1,518 @@
+{
+  "version": "1",
+  "language": "en",
+  "defaultIndexable": false,
+  "scope": "P0 authored route/case/source/fixture/test traceability; references are not evidence of a test pass.",
+  "sourceRegister": [
+    {
+      "id": "S2",
+      "title": "axe-core API",
+      "url": "https://github.com/dequelabs/axe-core/blob/develop/doc/API.md"
+    },
+    {
+      "id": "S3",
+      "title": "Playwright accessibility testing",
+      "url": "https://playwright.dev/docs/accessibility-testing"
+    },
+    {
+      "id": "S4",
+      "title": "WAI Forms Tutorial",
+      "url": "https://www.w3.org/WAI/tutorials/forms/"
+    },
+    {
+      "id": "S5",
+      "title": "APG modal dialog",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/"
+    },
+    {
+      "id": "S6a",
+      "title": "APG menu button",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/"
+    },
+    {
+      "id": "S6b",
+      "title": "APG disclosure navigation",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-navigation/"
+    },
+    {
+      "id": "S12",
+      "title": "W3C evaluation tool limits",
+      "url": "https://www.w3.org/WAI/test-evaluate/tools/selecting/"
+    },
+    {
+      "id": "S13",
+      "title": "Understanding WCAG keyboard",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/keyboard.html"
+    },
+    {
+      "id": "S14",
+      "title": "OWASP DOM XSS guidance",
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html"
+    },
+    {
+      "id": "S15",
+      "title": "Playwright network routing",
+      "url": "https://playwright.dev/docs/network"
+    }
+  ],
+  "cases": [
+    {
+      "caseId": "home",
+      "route": "/",
+      "kind": "overview",
+      "consequence": "An immediately usable synthetic sample makes the evidence workflow available without a private file.",
+      "sourceIds": [
+        "S3",
+        "S12"
+      ],
+      "fixtureFiles": [
+        "fixtures/contract/baseline-v1.json"
+      ],
+      "sourceFiles": [
+        "apps/web/app/page.tsx"
+      ],
+      "testFiles": [
+        "tests/e2e/workbench.spec.ts"
+      ],
+      "acceptanceIds": [
+        "E2E-01",
+        "SEO-01"
+      ],
+      "manualChecks": [
+        "keyboard.complete"
+      ]
+    },
+    {
+      "caseId": "workbench",
+      "route": "/workbench/",
+      "kind": "tool",
+      "consequence": "A user can inspect and compare evidence without transmitting the source report.",
+      "sourceIds": [
+        "S2",
+        "S3",
+        "S12",
+        "S14"
+      ],
+      "fixtureFiles": [
+        "fixtures/contract/baseline-v1.json",
+        "fixtures/contract/candidate-v1.json",
+        "fixtures/contract/expected-comparison.json"
+      ],
+      "sourceFiles": [
+        "apps/web/app/workbench/page.tsx"
+      ],
+      "testFiles": [
+        "tests/e2e/workbench.spec.ts",
+        "tests/e2e/privacy.spec.ts"
+      ],
+      "acceptanceIds": [
+        "E2E-01",
+        "E2E-02",
+        "E2E-03",
+        "E2E-04",
+        "E2E-05",
+        "E2E-06",
+        "E2E-12",
+        "SEC-01",
+        "SEC-02",
+        "SEC-03",
+        "SEC-04",
+        "SEC-05"
+      ],
+      "manualChecks": [
+        "keyboard.complete",
+        "focus.visible"
+      ]
+    },
+    {
+      "caseId": "pattern-forms",
+      "route": "/patterns/forms/",
+      "kind": "pattern",
+      "consequence": "Users can discover the invalid field and recover without losing entered values.",
+      "sourceIds": [
+        "S4"
+      ],
+      "fixtureFiles": [
+        "spec/states.json"
+      ],
+      "sourceFiles": [
+        "apps/web/components/patterns/FormExample.tsx"
+      ],
+      "testFiles": [
+        "tests/e2e/patterns.spec.ts",
+        "tests/e2e/patterns-a11y.spec.ts"
+      ],
+      "acceptanceIds": [
+        "E2E-07",
+        "E2E-10",
+        "UX-03"
+      ],
+      "manualChecks": [
+        "form.errors",
+        "keyboard.complete",
+        "screen-reader.feedback"
+      ]
+    },
+    {
+      "caseId": "pattern-dialog",
+      "route": "/patterns/dialog/",
+      "kind": "pattern",
+      "consequence": "A user can enter the modal context, leave it and resume at a useful focus destination.",
+      "sourceIds": [
+        "S5"
+      ],
+      "fixtureFiles": [
+        "spec/states.json"
+      ],
+      "sourceFiles": [
+        "apps/web/components/patterns/DialogExample.tsx"
+      ],
+      "testFiles": [
+        "tests/e2e/patterns.spec.ts",
+        "tests/e2e/patterns-a11y.spec.ts"
+      ],
+      "acceptanceIds": [
+        "E2E-08",
+        "E2E-10",
+        "UX-03"
+      ],
+      "manualChecks": [
+        "dialog.context",
+        "keyboard.complete",
+        "screen-reader.feedback"
+      ]
+    },
+    {
+      "caseId": "pattern-menu",
+      "route": "/patterns/menu-button/",
+      "kind": "pattern",
+      "consequence": "Commands remain discoverable and operable with the expected action-menu keys.",
+      "sourceIds": [
+        "S6a",
+        "S6b"
+      ],
+      "fixtureFiles": [
+        "spec/states.json"
+      ],
+      "sourceFiles": [
+        "apps/web/components/patterns/MenuExample.tsx"
+      ],
+      "testFiles": [
+        "tests/e2e/patterns.spec.ts",
+        "tests/e2e/patterns-a11y.spec.ts"
+      ],
+      "acceptanceIds": [
+        "E2E-09",
+        "E2E-10",
+        "UX-03"
+      ],
+      "manualChecks": [
+        "menu.discovery",
+        "keyboard.complete",
+        "screen-reader.feedback"
+      ]
+    },
+    {
+      "caseId": "guide-read-axe",
+      "route": "/guides/read-axe-results/",
+      "kind": "guide",
+      "consequence": "Rule counts, affected nodes and incomplete checks retain their distinct meaning.",
+      "sourceIds": [
+        "S2",
+        "S3",
+        "S12"
+      ],
+      "fixtureFiles": [
+        "fixtures/contract/baseline-v1.json"
+      ],
+      "sourceFiles": [
+        "apps/web/content/articles.ts"
+      ],
+      "testFiles": [
+        "tests/content/content.test.ts",
+        "tests/e2e/workbench.spec.ts"
+      ],
+      "acceptanceIds": [
+        "E2E-01",
+        "E2E-02",
+        "SEO-01"
+      ],
+      "manualChecks": [
+        "keyboard.complete"
+      ]
+    },
+    {
+      "caseId": "guide-compare",
+      "route": "/guides/compare-reports/",
+      "kind": "guide",
+      "consequence": "A missing state cannot masquerade as an observed correction.",
+      "sourceIds": [
+        "S2",
+        "S3",
+        "S12"
+      ],
+      "fixtureFiles": [
+        "fixtures/contract/baseline-v1.json",
+        "fixtures/contract/candidate-v1.json",
+        "fixtures/contract/expected-comparison.json"
+      ],
+      "sourceFiles": [
+        "apps/web/content/articles.ts"
+      ],
+      "testFiles": [
+        "tests/content/content.test.ts",
+        "tests/e2e/workbench.spec.ts"
+      ],
+      "acceptanceIds": [
+        "E2E-03",
+        "E2E-04",
+        "SEO-01"
+      ],
+      "manualChecks": [
+        "keyboard.complete"
+      ]
+    },
+    {
+      "caseId": "guide-form-errors",
+      "route": "/guides/form-errors/",
+      "kind": "guide",
+      "consequence": "An associated error helps a user identify the field and continue the task.",
+      "sourceIds": [
+        "S4"
+      ],
+      "fixtureFiles": [
+        "spec/states.json"
+      ],
+      "sourceFiles": [
+        "apps/web/content/articles.ts",
+        "apps/web/components/patterns/FormExample.tsx"
+      ],
+      "testFiles": [
+        "tests/content/content.test.ts",
+        "tests/e2e/patterns.spec.ts"
+      ],
+      "acceptanceIds": [
+        "E2E-07",
+        "SEO-01"
+      ],
+      "manualChecks": [
+        "form.errors",
+        "screen-reader.feedback"
+      ]
+    },
+    {
+      "caseId": "guide-dialog-focus",
+      "route": "/guides/dialog-focus/",
+      "kind": "guide",
+      "consequence": "Intentional focus placement and return make a bounded edit predictable.",
+      "sourceIds": [
+        "S5"
+      ],
+      "fixtureFiles": [
+        "spec/states.json"
+      ],
+      "sourceFiles": [
+        "apps/web/content/articles.ts",
+        "apps/web/components/patterns/DialogExample.tsx"
+      ],
+      "testFiles": [
+        "tests/content/content.test.ts",
+        "tests/e2e/patterns.spec.ts"
+      ],
+      "acceptanceIds": [
+        "E2E-08",
+        "SEO-01"
+      ],
+      "manualChecks": [
+        "dialog.context",
+        "screen-reader.feedback"
+      ]
+    },
+    {
+      "caseId": "guide-menu-choice",
+      "route": "/guides/menu-or-disclosure/",
+      "kind": "guide",
+      "consequence": "Navigation links avoid unexpected command-menu keyboard semantics.",
+      "sourceIds": [
+        "S6a",
+        "S6b"
+      ],
+      "fixtureFiles": [
+        "spec/states.json"
+      ],
+      "sourceFiles": [
+        "apps/web/content/articles.ts",
+        "apps/web/components/patterns/MenuExample.tsx"
+      ],
+      "testFiles": [
+        "tests/content/content.test.ts",
+        "tests/e2e/patterns.spec.ts"
+      ],
+      "acceptanceIds": [
+        "E2E-09",
+        "SEO-01"
+      ],
+      "manualChecks": [
+        "menu.discovery",
+        "screen-reader.feedback"
+      ]
+    },
+    {
+      "caseId": "guide-keyboard",
+      "route": "/guides/keyboard-review/",
+      "kind": "guide",
+      "consequence": "A manual result describes an actual reproducible task instead of a vague pass.",
+      "sourceIds": [
+        "S13",
+        "S12",
+        "S3"
+      ],
+      "fixtureFiles": [
+        "fixtures/contract/manual-unrun.json"
+      ],
+      "sourceFiles": [
+        "apps/web/content/articles.ts"
+      ],
+      "testFiles": [
+        "tests/content/content.test.ts",
+        "tests/e2e/workbench.spec.ts",
+        "tests/e2e/patterns.spec.ts"
+      ],
+      "acceptanceIds": [
+        "UX-01",
+        "UX-02",
+        "SEO-01"
+      ],
+      "manualChecks": [
+        "keyboard.complete",
+        "focus.visible",
+        "zoom.reflow",
+        "motion.preference"
+      ]
+    },
+    {
+      "caseId": "docs-import",
+      "route": "/docs/import-format/",
+      "kind": "reference",
+      "consequence": "A malformed or unsupported file cannot silently become a successful scan.",
+      "sourceIds": [
+        "S2",
+        "S3"
+      ],
+      "fixtureFiles": [
+        "fixtures/contract/baseline-v1.json",
+        "schemas/report-bundle.schema.json"
+      ],
+      "sourceFiles": [
+        "apps/web/content/articles.ts",
+        "packages/cli/src/index.ts"
+      ],
+      "testFiles": [
+        "tests/content/content.test.ts",
+        "tests/e2e/workbench.spec.ts",
+        "tests/e2e/privacy.spec.ts"
+      ],
+      "acceptanceIds": [
+        "E2E-02",
+        "E2E-06",
+        "E2E-11",
+        "SEC-03",
+        "SEC-04",
+        "SEO-01"
+      ],
+      "manualChecks": [
+        "keyboard.complete"
+      ]
+    },
+    {
+      "caseId": "privacy",
+      "route": "/privacy/",
+      "kind": "reference",
+      "consequence": "The user understands what session processing and minimized sharing can and cannot protect.",
+      "sourceIds": [
+        "S14",
+        "S15"
+      ],
+      "fixtureFiles": [
+        "fixtures/contract/baseline-v1.json"
+      ],
+      "sourceFiles": [
+        "apps/web/content/articles.ts",
+        "docs/SECURITY-PRIVACY.md"
+      ],
+      "testFiles": [
+        "tests/content/content.test.ts",
+        "tests/e2e/privacy.spec.ts"
+      ],
+      "acceptanceIds": [
+        "SEC-01",
+        "SEC-02",
+        "SEC-04",
+        "E2E-12",
+        "SEO-01"
+      ],
+      "manualChecks": [
+        "keyboard.complete"
+      ]
+    },
+    {
+      "caseId": "limitations",
+      "route": "/limitations/",
+      "kind": "reference",
+      "consequence": "Unavailable coverage remains visible instead of becoming a compliance claim.",
+      "sourceIds": [
+        "S2",
+        "S3",
+        "S12"
+      ],
+      "fixtureFiles": [
+        "fixtures/contract/candidate-incomplete.json",
+        "fixtures/contract/candidate-engine-change.json"
+      ],
+      "sourceFiles": [
+        "apps/web/content/articles.ts",
+        "docs/ACCEPTANCE.md"
+      ],
+      "testFiles": [
+        "tests/content/content.test.ts",
+        "tests/e2e/workbench.spec.ts"
+      ],
+      "acceptanceIds": [
+        "E2E-04",
+        "UX-03",
+        "SEO-01"
+      ],
+      "manualChecks": [
+        "screen-reader.feedback",
+        "zoom.reflow"
+      ]
+    },
+    {
+      "caseId": "about",
+      "route": "/about/",
+      "kind": "project",
+      "consequence": "Project and release claims remain consistent with actual evidence and source licensing.",
+      "sourceIds": [
+        "S2",
+        "S3",
+        "S12"
+      ],
+      "fixtureFiles": [],
+      "sourceFiles": [
+        "apps/web/content/articles.ts",
+        "LICENSE",
+        "docs/RESEARCH-BASELINE.md"
+      ],
+      "testFiles": [
+        "tests/content/content.test.ts"
+      ],
+      "acceptanceIds": [
+        "SEC-06",
+        "SEO-01"
+      ],
+      "manualChecks": [
+        "keyboard.complete"
+      ]
+    }
+  ]
+}

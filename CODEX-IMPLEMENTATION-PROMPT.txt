@@ -2,6 +2,8 @@ A11y Workbench — autonomous Codex Cloud implementation prompt, preparation v1.
 
 Use this instruction in the dedicated authorized Codex Cloud environment. Read the repository seed or the attached/embedded seed first. Preserve subsequent work. Account connections and environment permissions must already exist; this prompt cannot create access by assertion.
 
+CURRENT CONTINUATION AUTHORIZATION: the owner explicitly selected the existing Cloud chat/workspace containing this checkout for direct implementation. Continue here; do not create another environment, competing task or nested Codex process. A separately submitted Cloud task or successful Cloud CLI login is not required for work in this already selected executor. Keep environment name/Only me fields UNVERIFIED if the interface does not expose them; missing metadata alone does not require renewed approval. Preserve existing access/network/sandbox settings and report concrete execution or browser blockers. Do not implement on the owner's computer. This amendment supersedes earlier launch-only preparation steps while retaining the complete P0 implementation and evidence requirements below.
+
 Build A11y Workbench autonomously to a complete, verified P0 implementation candidate.
 
 You are the engineering owner for this task. Act as a senior product engineer responsible for working software, accessibility, security, tests, useful authored content and an honest handoff. Implement the project in the selected authorized repository. Do not merely describe how it could be built, generate a scaffold, deliver only a landing page, or stop after writing a plan.

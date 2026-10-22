@@ -1,0 +1,94 @@
+{
+  "runtime": {
+    "node": "v24.19.0",
+    "platform": "linux",
+    "arch": "x64"
+  },
+  "scope": "Node laboratory normalization/diff timings for synthetic inputs, not browser responsiveness or field Core Web Vitals. RSS is before/after, not a peak-memory measurement.",
+  "results": [
+    {
+      "name": "small",
+      "run": 1,
+      "inputBytes": 2020,
+      "sourceNodes": 12,
+      "parseNormalizeMs": 28.91,
+      "diffMs": 15.46,
+      "totalMs": 44.37,
+      "rssBeforeBytes": 274800640,
+      "rssAfterBytes": 246611968,
+      "comparisonItems": 12,
+      "status": "PASS",
+      "laboratoryTargetMet": true
+    },
+    {
+      "name": "small",
+      "run": 2,
+      "inputBytes": 2020,
+      "sourceNodes": 12,
+      "parseNormalizeMs": 5.34,
+      "diffMs": 2.08,
+      "totalMs": 7.42,
+      "rssBeforeBytes": 246611968,
+      "rssAfterBytes": 249495552,
+      "comparisonItems": 12,
+      "status": "PASS",
+      "laboratoryTargetMet": true
+    },
+    {
+      "name": "small",
+      "run": 3,
+      "inputBytes": 2020,
+      "sourceNodes": 12,
+      "parseNormalizeMs": 4.62,
+      "diffMs": 1.32,
+      "totalMs": 5.94,
+      "rssBeforeBytes": 249495552,
+      "rssAfterBytes": 251199488,
+      "comparisonItems": 12,
+      "status": "PASS",
+      "laboratoryTargetMet": true
+    },
+    {
+      "name": "near-limit",
+      "run": 1,
+      "inputBytes": 9979048,
+      "sourceNodes": 10000,
+      "parseNormalizeMs": 2001.58,
+      "diffMs": 885.07,
+      "totalMs": 2886.65,
+      "rssBeforeBytes": 251199488,
+      "rssAfterBytes": 360853504,
+      "comparisonItems": 10000,
+      "status": "PASS",
+      "laboratoryTargetMet": true
+    },
+    {
+      "name": "near-limit",
+      "run": 2,
+      "inputBytes": 9979048,
+      "sourceNodes": 10000,
+      "parseNormalizeMs": 1649.01,
+      "diffMs": 1062.57,
+      "totalMs": 2711.58,
+      "rssBeforeBytes": 360853504,
+      "rssAfterBytes": 380215296,
+      "comparisonItems": 10000,
+      "status": "PASS",
+      "laboratoryTargetMet": true
+    },
+    {
+      "name": "near-limit",
+      "run": 3,
+      "inputBytes": 9979048,
+      "sourceNodes": 10000,
+      "parseNormalizeMs": 1529.51,
+      "diffMs": 918.48,
+      "totalMs": 2448,
+      "rssBeforeBytes": 380215296,
+      "rssAfterBytes": 382251008,
+      "comparisonItems": 10000,
+      "status": "PASS",
+      "laboratoryTargetMet": true
+    }
+  ]
+}

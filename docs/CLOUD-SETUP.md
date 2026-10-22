@@ -1,68 +1,57 @@
-# Cloud setup and actual handoff state
+# Existing Cloud workspace and runtime checks
 
-Updated 2026-10-21. See `../START-HERE-RU.md` for the owner walkthrough and `../SETUP-CLOUD-ENVIRONMENT.txt` for setup instructions to the environment assistant.
+## Owner-selected execution context
 
-## Actual state
+The owner explicitly selected the existing Cloud chat/workspace for this project and authorized implementation directly in its a11y-workbench checkout. This supersedes earlier preparation steps requiring a separately launched implementation task. Do not create a new environment, competing task or nested Codex invocation. Implementation and tests stay in the existing Cloud workspace, not on the owner's computer.
 
-The project-owned technical seed is available and the application is not yet implemented. Authenticated GitHub checks confirmed that `kostrubin/a11y-workbench` is public and was initially empty; the reviewed seed was then pushed to branch `work` at `fcbf0e65c9391adad3d3ec36fa83e12d1f62bab7`. Remote refs and the branch API confirmed the push. This supersedes the earlier preparation-time 404. The owner explicitly authorizes reviewed source, documentation, tests and synthetic examples in this repository, with ordinary commits and pushes to a working branch. Keep it public and inspect the exact files and prepared commits before pushing. Do not publish secrets, personal data, real reports or sensitive logs.
+The environment name and Only me/ACL metadata are UNVERIFIED because the available runtime interface does not expose them. This missing metadata is not itself a new access change or a reason to repeat approval for the already selected workspace. Preserve the current access, sandbox and network settings. Private chat/runtime/configuration identifiers stay outside the public source repository.
 
-A managed cloud workspace is running, but the selected environment's name, private access scope and publication have not been verified. The current toolset exposes runtime status/diagnostics, not environment creation, editing or publication. Codex CLI cloud-list access returned `401 Unauthorized`; the device-authorization request failed before a secure sign-in interface was available. No implementation task was submitted or started. Neither a running workspace nor an inactive approval request proves a separate Cloud task was launched.
+The repository intentionally remains public: kostrubin/a11y-workbench, working branch work. Reviewed source, documentation, tests and synthetic examples may be committed and pushed normally. No force push, protection bypass or visibility change.
 
-Do not alter other projects. Use only `kostrubin/a11y-workbench`. The old private-repository prerequisite is cancelled. The environment itself must still be dedicated to this project and private / `Only me`.
+## Verified runtime and dependencies
 
-## One-time account setup
+Node 24.19.0, npm 11.9.0 and Git 2.52.0 are available. One committed root npm lockfile pins the reviewed workspace graph. npm ci completed. Next.js 16.4.2 / React 19.3.1 compile and export all fifteen authored routes. TypeScript 6.0.3 supplies the compiler API; TypeScript 7 is outside the selected linter's supported peer range. Next's supported useTypeScriptCli:false selects that compiler API while keeping strict type checking enabled.
 
-1. Use the existing public `kostrubin/a11y-workbench` repository. Do not recreate it or change its visibility. Inspect current remote contents before writing and preserve subsequent work. Grant the existing GitHub/Codex integration access only to this repository as needed. Do not request account-wide secrets, passwords, tokens or verification codes in chat.
-2. Choose **Work in > Cloud > Select environment > Create environment** or **Settings > Codex Cloud > Environments > Create environment** in the current interface. Select the repository, use the supplied setup prompt, inspect the setup report and publish the private environment. Its visibility is **Only me**. Publishing this configuration makes it selectable; it does not publish the app.
-3. Start a task in that environment on the reviewed working branch. Submit its complete `CODEX-IMPLEMENTATION-PROMPT.txt`, or a current self-contained prompt containing that full text and the matching seed. The original ZIP and bootstrap are historical snapshots with superseded repository-policy text; never restore them over the amended branch. Materialize only missing authorized files and preserve subsequent implementation work. Use one launch route, not duplicate implementations.
+No application API key, paid API, database, telemetry or product secret is needed. Build defaults are NEXT_TELEMETRY_DISABLED=1, SITE_RELEASE_APPROVED=false and empty SITE_PUBLIC_ORIGIN.
 
-The source seed is intentionally not an implemented application. The environment assistant should not fabricate scaffolds, lockfiles or fake tests to make setup appear complete. Its readiness report must say what has actually been installed and what the first coding task must do.
-
-## Runtime and network
-
-Use a supported compatible Node LTS runtime (prefer available Node 24 LTS; a compatible still-supported Node 22 LTS is acceptable), npm, Git and Bash. Record actual versions; a broad `>=22` helper check does not establish framework compatibility. Python 3 is optional for the seed materializer and preparation tests, not required by the finished web runtime.
-
-The first implementation task creates reviewed manifests and the initial lockfile. Dependency access must therefore be allowed **during that task**, not solely during setup. Use the smallest available scope: package registries, pinned browser-artifact hosts, connected GitHub and the referenced official documentation. Do not silently widen network policy to unrestricted access. Record the exact blocked host if downloads fail and complete independent work.
-
-Common registry/documentation destinations include `registry.npmjs.org`, `nextjs.org`, `react.dev`, `typescriptlang.org`, `playwright.dev`, `www.w3.org`, `developers.google.com`, and the referenced GitHub sources. This list is a planning aid, not an asserted complete allowlist: dependency/browser CDN redirects depend on the pinned release and must be inspected. Do not grant arbitrary wildcard domains or install a proxy to bypass policy.
-
-No application secrets, OpenAI API key, production data, shared browser profile, remote scanner or account-wide credentials are needed. Never request paid credits or automatic top-ups. Set build-time telemetry suppression `NEXT_TELEMETRY_DISABLED=1`. Keep `SITE_RELEASE_APPROVED=false`; `SITE_PUBLIC_ORIGIN` empty.
-
-## Setup helpers
-
-If seed files already exist, the install command is:
+## Reproduction in this workspace
 
 ```bash
-bash scripts/cloud-setup.sh
+npm ci
+npm run build
+npm run typecheck
+npm run lint
+npm test
+npm run check:licenses
+npm run preview
 ```
 
-A README-only repository has no such path yet; leave the install field empty or use harmless runtime checks until the seed exists. When no manifest exists, this helper exits with `SEED READY` and downloads nothing. This is not an application or browser-test pass.
+The preview binds only to 127.0.0.1:4173. Development uses npm run dev at 127.0.0.1:3000. These loopback servers do not publish a website. The combined npm run check also requires working browser tests and currently remains blocked at that prerequisite.
 
-After the coding task has created compatible reviewed manifests and a lockfile:
+scripts/cloud-setup.sh uses npm ci once a lockfile exists. A11Y_INSTALL_BROWSERS=1 requests the pinned local Playwright Chromium install. Run bash scripts/environment-doctor.sh --browser to prove a real browser launch; package installation alone is insufficient.
 
-```bash
-A11Y_INSTALL_BROWSERS=1 bash scripts/cloud-setup.sh
-bash scripts/environment-doctor.sh --browser
+## Concrete browser blocker
+
+The local Playwright 1.64.1 installer requests Chromium 156.0.8078.4 (build 1248) from:
+
+```text
+https://cdn.playwright.dev/builds/cft/156.0.8078.4/linux64/chrome-linux64.zip
+https://cdn.playwright.dev/builds/cft/156.0.8078.4/linux64/chrome-headless-shell-linux64.zip
 ```
 
-The first command uses `npm ci` and the local pinned Playwright executable to install Chromium. The second must actually launch an ephemeral browser on a synthetic local document. Do not use `sudo`, disable sandbox controls, or add a paid test service. Missing OS libraries or browser binaries remain explicit blockers. Additional engines can be installed through the same reviewed Playwright version when supported, with unavailable engines recorded separately.
+The current proxy rejects the download with 403 Domain forbidden. Browser doctor and an actual Chromium E2E attempt returned non-success because the pinned binary is missing. Firefox and WebKit are also absent. An earlier system Chromium attempt failed its SUID sandbox configuration; it is not an approved no-sandbox alternative.
 
-An interactive Cloud browser has not been connected in this session. This is separate from installing and running headless Playwright in the coding environment. Browser test capability must be demonstrated by actual launch, not inferred from either the presence or absence of an interactive browser tool. The preinstalled Chromium failed a sandbox-enabled launch because its SUID sandbox helper was not configured correctly; this is a blocker, not permission to disable sandboxing. Project-pinned dependencies and browser binaries are still absent.
+Do not silently broaden networking, change sandbox flags, use sudo, install arbitrary global browsers or claim browser passes. A supported remedy must preserve the owner's boundaries; any actual network/access change needs the owner's explicit decision. Continue all independent engineering and keep blocked checks visible.
 
-## Storage, checkpoints and CI
+## Source and release boundaries
 
-Continue the original task to use its own working files. A new task starts a separate workspace from the published setup and does not recover another task's uncommitted changes. Commit important work or retain explicit task artifacts through the normal authorized mechanism. Platform saved state is not permanent storage and not a source-control replacement.
+Only reviewed synthetic fixtures belong in Git. Reports, identity files, browser profiles, traces, sensitive logs and credentials remain excluded. Preserve MIT and third-party terms. Keep potentially billable GitHub Actions inactive in docs/ci/ci.yml.example. No deployment, public preview hosting, GitHub Release, package publication, indexing activation or additional spending is authorized.
 
-Keep GitHub Actions inactive in `docs/ci/ci.yml.example` until the account's free capacity or a budget is established. Use the authorized cloud workspace/task for implementation checks and report which actually ran. Reviewed source commits and pushes to the project's working branch are allowed; they do not authorize deployment, public previews, GitHub Releases, package publication, domain purchase, visibility change, website indexing, additional spending, privileged workflows or an unbounded self-relaunch loop.
+The prior CLI authentication results were scoped to their respective sessions. A local CLI was reported to list tasks successfully while a Cloud-workspace CLI returned 401. Neither is a prerequisite for engineering in the existing owner-selected workspace; do not repeat login loops or create another task merely for delegation.
 
-The owner receives a concrete reviewable candidate with exact commands, evidence and limitations. Routine implementation decisions do not require extra approvals. Usage/session limits may require a continuation but never justify fabricated results or a false claim of ongoing background work.
+## Sources
 
-## Primary references, checked 2026-10-21
-
-- https://learn.chatgpt.com/docs/environments/cloud-environments
-- https://learn.chatgpt.com/docs/environments/modes
-- https://help.openai.com/en/articles/20001545-using-codex-cloud
-- https://learn.chatgpt.com/docs/agent-configuration/agents-md
+- https://nextjs.org/docs/app/guides/static-exports
+- https://nextjs.org/docs/app/getting-started/installation
+- https://playwright.dev/docs/api/class-browsertype
 - https://playwright.dev/docs/browsers
-
-Check current account controls rather than assuming that every documented capability is available to this user. No account-specific quota, network permission or billing allowance was read in this preparation session.

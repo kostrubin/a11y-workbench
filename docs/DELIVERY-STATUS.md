@@ -1,27 +1,29 @@
-# Delivery status — preparation and owner amendment
+# Delivery status
 
-Prepared 2026-10-21. This is a development handoff, not an implemented application.
+The application, shared core, local capture CLI, authored static pages and executable tests are implemented in the owner-selected existing Cloud workspace. This is an in-development implementation candidate with blocked browser acceptance, not a released or unconditionally verified product.
 
-## Completed here
+## Implemented
 
-- Recovered the existing project-specific self-contained prompt and its 19 embedded seed files from the user's Library. No other project was used as the source of this package.
-- Preserved the approved product, sensitive-data, cost and website-release scope.
-- Added machine-readable route/state/manual-check/acceptance manifests, a canonical JSON Schema and clearly hand-authored contract fixtures with independently stated comparison expectations.
-- Added a cloud-environment setup prompt, a short launch prompt, a continuation prompt and a safe local seed materializer.
-- Rechecked current official cloud/setup guidance. Preparation test results are in `PREPARATION-VALIDATION.txt`.
-- Confirmed through authenticated GitHub metadata/content reads that `kostrubin/a11y-workbench` exists and is public. It was empty before the first reviewed source push; this supersedes the original preparation-time 404.
-- Recorded the owner's explicit authorization to keep that repository public and publish reviewed source, documentation, tests and synthetic examples through ordinary working-branch commits and pushes. The old private-repository prerequisite is cancelled.
-- Reconciled project documents with that amendment. MIT remains the license for original work; required third-party notices must be retained.
-- Reviewed all 45 staged files and 44 checksum entries for sensitive content, policy consistency and inactive automation; no blocking findings. Pushed source checkpoint `fcbf0e65c9391adad3d3ec36fa83e12d1f62bab7` normally to branch `work`. Both `git ls-remote --heads origin work` and the GitHub branch API confirmed that exact commit. GitHub reports public visibility; it selected `work` as the default branch after the initially empty repository received its first branch.
+- Session-only synthetic sample/import/inspect/comparison/manual/export/clear workbench, with bounded import and comparison workers.
+- Strict schema/cross-field processing, HMAC identities, conservative comparison and allowlisted JSON/Markdown exports.
+- Three corrected/broken interactive patterns and all nine named capture states.
+- Fifteen substantive static routes, six original guides and machine-readable source/fixture/test traceability.
+- Restricted HTTP loopback capture CLI with explicit output/identity safeguards and honest error captures.
+- Real root build, typecheck, lint, test, content/security/SEO/license and browser commands; inactive CI example.
+- MIT original-code licensing, installed third-party inventory and no-index defaults.
 
-## Not completed here
+## Observed verification
 
-- Creating or publishing a separately verified private Codex Cloud environment. A managed cloud workspace runs, but its environment name/private access scope/publication are unverified; no implementation task was submitted or started.
-- Implementing the application, generating a dependency lockfile, running application/browser/security/performance/SEO tests, or conducting human assistive-technology evaluation.
-- Deployment, public previews, GitHub Releases, visibility changes, domain registration, package publication, website indexing activation, or additional expenditure.
+Dependency installation, core/CLI compilation, static export, strict typing, lint, non-browser tests, license inventory and the default indexing gates passed. The final exact check counts and command results are in evidence/checks.json and VERIFICATION.md. Three small and three near-limit synthetic Node benchmark runs are recorded in evidence/performance.json.
 
-GitHub authentication and repository access are available. Cloud task-list access through Codex CLI returned `401 Unauthorized`; the device-authorization request failed before a secure login interface was created. Available environment tools expose runtime status and diagnostics, not configuration publication or task creation. The project-pinned browser prerequisite is not ready, and the preinstalled Chromium failed with sandboxing enabled. Do not treat any of these checks as a successful implementation launch.
+The pinned Chromium download is blocked by cdn.playwright.dev returning 403 Domain forbidden. Browser doctor and the attempted E2E gate failed before real UI testing. Real axe captures, screenshots, keyboard/zoom/assistive-technology evaluation and browser privacy/performance checks are not passed. See the per-acceptance table; no P0 requirement has been silently removed.
 
-## Next authorized work
+## Execution and exposure
 
-Continue environment preparation from the public `work` branch and submit the complete current implementation prompt once the required authenticated private Cloud environment can be verified. Record the task URL and observed running status only after the platform accepts and starts it. Review files and prepared commits before each subsequent ordinary source push. Routine implementation and safe source publication need no repeated owner approval; authorization, mandatory confirmations, budget, security, sensitive data and website/product release remain owner decisions.
+The owner selected the current existing Cloud workspace; no new environment or competing task was created. Environment name/Only me metadata remains UNVERIFIED and current access settings were preserved. Public source commits to work are authorized after review. Private chat/runtime identifiers and operational logs are not included in public source.
+
+SITE_RELEASE_APPROVED=false; SITE_PUBLIC_ORIGIN is empty. No public/private deployment, public preview hosting, GitHub Release, package publication, indexing, enabled CI or additional spending occurred.
+
+## Exact continuation
+
+Preserve this branch and continue the blocked browser checks in the same workspace after a supported browser/runtime remedy. Review any needed network/access change with the owner; do not weaken sandboxing. Run browser doctor, Chromium E2E/axe suites, available Firefox/WebKit checks, positive nine-state CLI captures and browser performance/privacy measurements. Fix discovered in-scope defects and update the evidence table before claiming an accepted P0 candidate.

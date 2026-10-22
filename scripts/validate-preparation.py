@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate this preparation seed, not the future application. No network writes.
+"""Validate the preserved preparation contracts, not application acceptance. No network writes.
 
 Default: Python standard-library structural/contract checks.
 --schema: additionally use an already installed jsonschema package; never install it.
@@ -57,7 +57,7 @@ def main() -> int:
     parser.add_argument('--schema', action='store_true')
     args = parser.parse_args()
     try:
-        paths = sorted(ROOT.rglob('*.json'))
+        paths = sorted((ROOT / 'spec').glob('*.json')) + sorted((ROOT / 'fixtures/contract').glob('*.json')) + [ROOT / 'schemas/report-bundle.schema.json', ROOT / 'docs/PROGRESS.json']
         for path in paths:
             json.loads(path.read_text(encoding='utf-8'))
         routes = load('spec/routes.json')['routes']
@@ -88,10 +88,11 @@ def main() -> int:
             return any(s['stateId'] == identity['stateId'] and any(p['ruleId'] == identity['ruleId'] and p['subjectId'] == identity['subjectId'] and p['outcome'] == 'pass' for p in s['capture']['evaluatedPairs']) for s in bundle['states'])
         require(has_pass(candidate, expected['identities']['F2']), 'F2 needs an exact candidate pass')
         require(has_pass(baseline, expected['identities']['F5']), 'F5 needs an exact baseline pass')
-        require(not (ROOT / 'package.json').exists(), 'this validator is for the unimplemented seed; do not use as an app test')
         require(not (ROOT / '.github/workflows').exists(), 'seed must not enable Actions')
         require('SITE_RELEASE_APPROVED=false' in (ROOT / '.env.example').read_text(), 'release default changed')
-        print(f'PASS: preparation contracts; {len(routes)} routes, {len(state_items)} states, {len(criteria)} NOT RUN app criteria, {len(bundles)} hand-authored bundles')
+        print(f'PASS: preserved preparation contracts; {len(routes)} routes, {len(state_items)} states, {len(criteria)} acceptance snapshot entries, {len(bundles)} hand-authored bundles')
+        if (ROOT / 'package.json').exists():
+            print('Implementation is present. The preserved acceptance manifest is a contract snapshot; use docs/VERIFICATION.md and real npm checks for current evidence.')
         if args.schema:
             try:
                 from jsonschema import Draft202012Validator, FormatChecker
@@ -104,7 +105,7 @@ def main() -> int:
             for path in bundles:
                 validator.validate(json.loads(path.read_text()))
             print('PASS: draft-2020-12 schema with explicit format checks; seven contract bundles validated')
-        print('Application / browser / security / SEO / performance / human AT tests: NOT RUN')
+        print('Application/browser/security/SEO/performance/human AT checks are not executed by this contract validator; see docs/VERIFICATION.md.')
         return 0
     except (ValueError, KeyError, OSError, StopIteration) as error:
         print(f'FAIL: preparation validation: {error}', file=sys.stderr)

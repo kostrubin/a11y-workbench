@@ -1,5 +1,7 @@
 Continue the existing A11y Workbench implementation in the original cloud task and its worktree. Do not start over or replace it with the preparation seed.
 
+The owner has selected this existing Cloud workspace as the implementation executor. Continue engineering directly here without a new environment, competing task, nested Codex or CLI-login prerequisite. Keep unavailable environment name/Only me metadata UNVERIFIED; preserve current access/network/sandbox settings. A concrete browser/runtime blocker does not prevent independent implementation checks. Local implementation on the owner's computer is not authorized.
+
 Inspect the actual branch, files and git status. Read AGENTS.md, CODEX-IMPLEMENTATION-PROMPT.txt, docs/PROGRESS.json, docs/DECISIONS.md and docs/VERIFICATION.md. Resume the first unfinished acceptance item; verify only changed or uncertain work, then complete the remaining P0 and real tests.
 
 The existing kostrubin/a11y-workbench repository stays PUBLIC and open source. Its old private-repository prerequisite is revoked. The owner authorizes ordinary working-branch commits and pushes of reviewed source, documentation, tests and synthetic examples without further approval. Inspect files and commits for secrets, tokens, personal data, real reports and sensitive logs before pushing. Preserve MIT and dependency notices. Do not force push, bypass branch protection or change visibility. Keep the dedicated environment private / Only me.

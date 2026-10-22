@@ -1,0 +1,26 @@
+.article { max-width: 76ch; margin: 0 auto; padding: 2.5rem 1.25rem 4rem; overflow-wrap: anywhere; }
+.header { padding-bottom: 1.5rem; border-bottom: 1px solid #cbd7d5; }
+.header h1 { font-size: clamp(2rem, 5vw, 3.1rem); line-height: 1.12; margin: .5rem 0 1.25rem; letter-spacing: -.035em; }
+.eyebrow { color: #006b5e; font-weight: 700; font-size: .875rem; letter-spacing: .06em; text-transform: uppercase; }
+.lead { font-size: 1.2rem; line-height: 1.6; }
+.consequence { color: #43545a; margin-bottom: 1.4rem; }
+.contents { padding: 1rem 1.25rem; background: #edf4f1; border-radius: .75rem; margin: 1.75rem 0; }
+.contents p { margin: 0; }
+.contents ul { margin-bottom: 0; padding-left: 1.25rem; columns: 2; column-gap: 2rem; }
+.contents li { margin: .35rem 0; break-inside: avoid; }
+.section { margin-top: 2.25rem; }
+.section h2, .verification h2 { font-size: 1.4rem; letter-spacing: -.015em; scroll-margin-top: 1.5rem; }
+.section p, .verification p { line-height: 1.75; }
+.section li, .verification li { line-height: 1.65; margin-bottom: .7rem; padding-left: .2rem; }
+.tableScroll { max-width: 100%; overflow-x: auto; border: 1px solid #cbd7d5; border-radius: .5rem; margin: 1rem 0; }
+.tableScroll table { width: 100%; border-collapse: collapse; min-width: 30rem; text-align: left; font-size: .95rem; }
+.tableScroll th, .tableScroll td { padding: .85rem; vertical-align: top; border-bottom: 1px solid #dce4e1; }
+.tableScroll thead { background: #edf4f1; }
+.tableScroll tbody tr:last-child th, .tableScroll tbody tr:last-child td { border-bottom: 0; }
+.tableScroll tbody th { width: 28%; }
+.code { background: #172b35; color: #f4f7f5; padding: 1.1rem; border-radius: .6rem; line-height: 1.65; font-size: .875rem; white-space: pre-wrap; overflow-wrap: anywhere; }
+.verification { margin-top: 2.5rem; padding: 1.25rem; border: 1px solid #b7ccc4; border-left: .3rem solid #006b5e; border-radius: .6rem; background: #fff; }
+.verification h2 { margin-top: 0; }
+.related { display: grid; gap: .8rem; grid-template-columns: repeat(3,minmax(0,1fr)); margin-top: 2.5rem; }
+.related a { display: block; padding: 1rem; line-height: 1.5; }
+@media (max-width: 640px) { .article { padding: 1.5rem 1rem 3rem; } .contents ul { columns: 1; } .related { grid-template-columns: 1fr; } }
