@@ -13,6 +13,8 @@
     "build:packages": "npm run build -w @a11y-workbench/core && npm run build -w @a11y-workbench/cli",
     "build:web": "npm run build -w @a11y-workbench/web && node --import tsx scripts/indexing-artifacts.ts",
     "build": "npm run build:packages && npm run build:web",
+    "build:pages": "NEXT_PUBLIC_BASE_PATH=/a11y-workbench SITE_RELEASE_APPROVED=false SITE_PUBLIC_ORIGIN= npm run build && node scripts/static-notices.mjs",
+    "check:pages": "NEXT_PUBLIC_BASE_PATH=/a11y-workbench node --import tsx scripts/check-pages.ts",
     "typecheck": "npm run typecheck --workspaces --if-present && tsc -p tsconfig.tools.json --noEmit",
     "lint": "eslint apps packages scripts tests playwright.config.ts",
     "test": "npm run build:packages && node --import tsx --test --test-isolation=none tests/core/*.test.ts tests/cli/*.test.ts tests/content/*.test.ts tests/security/*.test.ts tests/seo/*.test.ts",

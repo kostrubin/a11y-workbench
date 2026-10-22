@@ -2,7 +2,7 @@
 
 An open-source accessibility workbench in development for inspecting automated findings, comparing compatible runs, recording manual checks and learning from executable form, dialog and menu examples.
 
-**Status: implementation in development, with browser verification blocked.** Application code, a shared processing core, the capture CLI and tests are now present. This is not a released or fully accepted accessibility tool. Dependency installation, the fifteen-route static build, strict typing, lint and 49 non-browser tests passed in the selected Cloud workspace; exact acceptance results are tracked in [the verification record](docs/VERIFICATION.md). The pinned browser download currently fails with a proxy `403` from `cdn.playwright.dev`. No successful E2E run, real capture, screenshot or human assistive-technology session is claimed.
+**Status: implementation in development, with browser verification blocked.** Application code, a shared processing core, the capture CLI and tests are now present. This is not a released or fully accepted accessibility tool. Dependency installation, the fifteen-route static build, strict typing, lint and 52 non-browser tests passed in the selected Cloud workspace; exact acceptance results are tracked in [the verification record](docs/VERIFICATION.md). The pinned browser download currently fails with a proxy `403` from `cdn.playwright.dev`. No successful E2E run, real capture, screenshot or human assistive-technology session is claimed.
 
 There is no deployed website. Public source publication does not authorize deployment, public previews, GitHub Releases, package publication, website indexing or additional spending.
 
@@ -42,6 +42,20 @@ bash scripts/environment-doctor.sh --browser
 ```
 
 Dependency installation alone does not prove browser availability. The current download is blocked; do not mark browser checks passed or disable sandbox controls to work around that result. Firefox and WebKit may be installed through the same pinned executable when the authorized environment supports their downloads and system dependencies.
+
+## GitHub Pages compatibility
+
+A project-path static build is prepared for the prospective address `https://kostrubin.github.io/a11y-workbench/`. **It is not published.** The owner's question about feasibility has not been treated as cancellation of the earlier explicit deployment prohibition. Publication of this in-development candidate requires a separate owner decision; browser acceptance remains blocked.
+
+```bash
+npm run build:pages
+npm run check:pages
+npm run preview -- --base-path /a11y-workbench
+```
+
+These commands build and check files in the current development environment. They do not enable Pages or create a public preview. The build uses `/a11y-workbench` for routes, assets and workers, includes `.nojekyll` and installed license/NOTICE texts, and preserves `SITE_RELEASE_APPROVED=false`, empty `SITE_PUBLIC_ORIGIN`, per-page `noindex`, and no sitemap/canonicals. The default root-hosted build remains available with `npm run build`.
+
+The proposed publication route is a separate `gh-pages` branch containing only the reviewed generated site. GitHub Pages is available for this public repository on GitHub Free. Branch publishing uses GitHub's native Pages deployment and may appear in Actions; no custom workflow, larger runner, cache or separately retained Actions artifact is proposed. Source `work` and repository visibility are preserved. See [the prepared publication decision](docs/GITHUB-PAGES.md).
 
 ## Try the workflow
 

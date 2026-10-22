@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { articles, sourceUrl, type ArticleId } from "../content/articles";
 import styles from "../content/article.module.css";
 
@@ -10,7 +11,7 @@ export function Article({ id }: { id: ArticleId }) {
         <h1>{article.title}</h1>
         <p className={styles.lead}>{article.lead}</p>
         <p className={styles.consequence}>{article.consequence}</p>
-        <a className="button" href={article.action.href}>{article.action.label}</a>
+        <Link className="button" href={article.action.href}>{article.action.label}</Link>
       </header>
       <nav className={styles.contents} aria-label="On this page">
         <p><strong>On this page</strong></p>
@@ -54,7 +55,7 @@ export function Article({ id }: { id: ArticleId }) {
         <ul>{article.sources.map((source) => <li key={source.href}><a href={source.href} target="_blank" rel="noopener noreferrer">{source.label}</a></li>)}</ul>
       </section>
       <nav className={styles.related} aria-label="Related pages">
-        {article.related.map((link) => <a className="card" key={link.href} href={link.href}>{link.label}<span aria-hidden="true"> →</span></a>)}
+        {article.related.map((link) => <Link className="card" key={link.href} href={link.href}>{link.label}<span aria-hidden="true"> →</span></Link>)}
       </nav>
     </article>
   );

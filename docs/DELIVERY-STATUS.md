@@ -27,3 +27,7 @@ SITE_RELEASE_APPROVED=false; SITE_PUBLIC_ORIGIN is empty. No public/private depl
 ## Exact continuation
 
 Preserve this branch and continue the blocked browser checks in the same workspace after a supported browser/runtime remedy. Review any needed network/access change with the owner; do not weaken sandboxing. Run browser doctor, Chromium E2E/axe suites, available Firefox/WebKit checks, positive nine-state CLI captures and browser performance/privacy measurements. Fix discovered in-scope defects and update the evidence table before claiming an accepted P0 candidate.
+
+## GitHub Pages preparation
+
+An opt-in project-path static candidate is prepared for `/a11y-workbench`, with prefix-aware links/assets/workers, `.nojekyll`, redistributed license/NOTICE texts and static/HTTP regression checks. It has not been published. The concrete publication choice is in GITHUB-PAGES.md; browser acceptance remains blocked and indexing stays off.

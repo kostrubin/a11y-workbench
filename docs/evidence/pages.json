@@ -1,0 +1,43 @@
+{
+  "status": "PASS_STATIC_ARTIFACT_CHECKS",
+  "basePath": "/a11y-workbench",
+  "authoredRoutes": 15,
+  "framework404": true,
+  "staticFiles": 128,
+  "checkedReferences": 43,
+  "workerAssets": [
+    "/a11y-workbench/_next/static/chunks/715.9425aa12d2215220.js",
+    "/a11y-workbench/_next/static/chunks/918.66653653c5feb8b4.js"
+  ],
+  "browserExecution": "BLOCKED; static checks do not establish browser behavior",
+  "deployment": false,
+  "indexing": false,
+  "publicationStatus": "NOT_PUBLISHED_PENDING_EXPLICIT_OWNER_DECISION",
+  "prospectiveUrl": "https://kostrubin.github.io/a11y-workbench/",
+  "sourceMode": "existing Cloud workspace, reviewed source on work",
+  "buildCommand": "npm run build:pages",
+  "buildStatus": "PASS",
+  "prefixNonBrowserTests": {
+    "status": "PASS",
+    "tests": 52,
+    "pass": 52,
+    "fail": 0,
+    "skipped": 0
+  },
+  "licenseTexts": 262,
+  "siteReleaseApproved": false,
+  "sitePublicOrigin": "",
+  "customWorkflowCreated": false,
+  "artifact": {
+    "zipSha256": "2f6fd63555c0a3418c4a501de8147f622f928542b15f8f07fa7946434d358979",
+    "zipBytes": 771094,
+    "staticBytes": 3144053,
+    "files": 128
+  },
+  "repositoryPagesState": {
+    "hasPages": false,
+    "pagesResourceHttpStatus": 404,
+    "ghPagesBranchExists": false,
+    "settingsChanged": false
+  }
+}

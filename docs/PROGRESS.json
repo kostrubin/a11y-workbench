@@ -15,8 +15,8 @@
     "npm run build: PASS (core/CLI plus 15 authored static routes)",
     "npm run typecheck: PASS",
     "npm run lint: PASS",
-    "npm test: 49 PASS, 0 FAIL, 0 SKIPPED",
-    "npm run check:seo: 2 PASS",
+    "npm test: 52 PASS, 0 FAIL, 0 SKIPPED",
+    "npm run check:seo: 3 PASS",
     "npm run check:licenses: 142 installed declarations match",
     "npm audit --json: zero reported vulnerabilities",
     "npm run benchmark: 3 small and 3 near-limit Node runs meet laboratory targets",
@@ -77,5 +77,14 @@
     "M4": "PASS: authored static routes/content/default indexing gates",
     "M5": "PARTIAL: non-browser security, audit/license and Node laboratory measurements pass; browser/AT gates BLOCKED or NOT RUN",
     "M6": "Documented reviewable source checkpoint with explicit blocked evidence; no release"
+  },
+  "githubPagesPreparation": {
+    "status": "STATIC_CANDIDATE_PREPARED_NOT_PUBLISHED",
+    "basePath": "/a11y-workbench",
+    "prospectiveUrl": "https://kostrubin.github.io/a11y-workbench/",
+    "deploymentAuthorized": false,
+    "indexingAuthorized": false,
+    "customWorkflowCreated": false,
+    "details": "docs/GITHUB-PAGES.md"
   }
 }

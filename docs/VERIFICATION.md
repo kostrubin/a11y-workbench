@@ -14,7 +14,7 @@ The P0 implementation is present in the owner-selected existing Cloud workspace.
 | npm run typecheck | PASS | Strict TypeScript in all three workspaces |
 | npm run lint | PASS | ESLint application/packages/scripts/tests |
 | npm test | PASS; exact final count in docs/evidence/checks.json | Core, CLI, content, source trust boundaries, indexing and static HTTP checks; no skipped tests |
-| npm run check:seo | PASS: 2 tests | Fifteen distinct titles/descriptions, static headings/links, noindex defaults, no canonical or public sitemap |
+| npm run check:seo | PASS: 3 tests | Fifteen distinct titles/descriptions, static headings/links, noindex defaults, no canonical or public sitemap |
 | npm run check:licenses | PASS: 142 installed declarations | Inventory in THIRD-PARTY-NOTICES.md; not a legal certification |
 | npm audit --json | PASS: zero reported advisories | Recorded installed lockfile graph; not a general security guarantee |
 | npm run benchmark | PASS for the Node laboratory targets | Three small and three near-limit runs; see evidence/performance.json |
@@ -24,6 +24,12 @@ The P0 implementation is present in the owner-selected existing Cloud workspace.
 | Firefox / WebKit | NOT RUN | Neither pinned engine is installed; no coverage claimed |
 
 The original archive's 24 preparation tests are historical packaging checks. They are not included as application evidence. Current core tests use the independent F1–F5 fixture oracle and separate security cases. CLI tests include real loopback redirect guards and a missing-browser error-output case; the latter proves failure behavior, not a successful nine-state capture.
+
+## GitHub Pages preparation
+
+The project-path build and static artifact checks pass with `/a11y-workbench`: fifteen authored pages plus the framework 404, correctly mounted HTML/CSS/JS, both lazy worker chunks, `.nojekyll`, MIT and installed third-party license/NOTICE texts. Current non-browser tests total **52 PASS, 0 FAIL, 0 skipped**; prefix preview tests use real loopback HTTP, including deep links, assets, redirects and traversal/mount isolation. Default root hosting is checked separately after the project-path build.
+
+`docs/evidence/pages.json` records the reviewed artifact counts. These are static/HTTP checks, not browser execution. Pages is not enabled, the prospective address is not a live-site claim, no custom workflow was created, and indexing remains off. See GITHUB-PAGES.md for the concrete pending owner publication decision. Existing browser/axe/AT acceptance limitations still apply.
 
 ## Per-acceptance evidence
 

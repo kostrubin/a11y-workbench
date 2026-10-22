@@ -25,21 +25,21 @@
     },
     "npm test": {
       "status": "PASS",
-      "tests": 49,
-      "pass": 49,
+      "tests": 52,
+      "pass": 52,
       "fail": 0,
       "skipped": 0,
       "categories": {
         "core": 26,
         "cli": 13,
         "content": 6,
-        "security": 2,
-        "seo": 2
+        "security": 4,
+        "seo": 3
       }
     },
     "npm run check:seo": {
       "status": "PASS",
-      "tests": 2
+      "tests": 3
     },
     "npm run check:licenses": {
       "status": "PASS",
@@ -79,6 +79,18 @@
       "failedAtLaunch": 1,
       "didNotRun": 35,
       "reason": "Pinned Chromium executable is missing"
+    },
+    "npm run build:pages": {
+      "status": "PASS",
+      "basePath": "/a11y-workbench",
+      "authoredStaticRoutes": 15,
+      "publication": false
+    },
+    "npm run check:pages": {
+      "status": "PASS_STATIC_ARTIFACT_CHECKS",
+      "details": "pages.json",
+      "publication": false,
+      "browserBehavior": "NOT VERIFIED"
     }
   },
   "browserTestDefinitions": {
