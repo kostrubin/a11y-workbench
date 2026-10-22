@@ -1,6 +1,6 @@
 # Product specification — A11y Workbench
 
-Status: implementation contract; application code and static export exist, while browser acceptance remains blocked as recorded in `VERIFICATION.md`. This document defines the full P0; it is not a claim that all requirements have passed. `ACCEPTANCE.md` defines completion evidence and `ARCHITECTURE.md` owns the serialized schema and technical boundaries. Names and branding are provisional. The owner authorizes reviewed source, documentation, tests and synthetic examples in the public `kostrubin/a11y-workbench` repository. Website deployment, public previews, GitHub Releases, packages, website indexing and additional spending remain unauthorized.
+Status: implementation contract; application code and static export exist, while browser acceptance remains blocked as recorded in `VERIFICATION.md`. This document defines the full P0; it is not a claim that all requirements have passed. `ACCEPTANCE.md` defines completion evidence and `ARCHITECTURE.md` owns the serialized schema and technical boundaries. Names and branding are provisional. The owner authorizes reviewed source, documentation, tests and synthetic examples in the public `kostrubin/a11y-workbench` repository. The owner separately approved and GitHub verified publication of the prepared in-development Pages candidate at https://kostrubin.github.io/a11y-workbench/; see GITHUB-PAGES.md. Other deployments/previews, GitHub Releases, packages, indexing and additional spending remain unauthorized; browser acceptance is still blocked.
 
 ## 1. Purpose and users
 

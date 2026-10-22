@@ -45,7 +45,9 @@ Do not silently broaden networking, change sandbox flags, use sudo, install arbi
 
 ## Source and release boundaries
 
-Only reviewed synthetic fixtures belong in Git. Reports, identity files, browser profiles, traces, sensitive logs and credentials remain excluded. Preserve MIT and third-party terms. Keep potentially billable GitHub Actions inactive in docs/ci/ci.yml.example. No deployment, public preview hosting, GitHub Release, package publication, indexing activation or additional spending is authorized.
+Only reviewed synthetic fixtures belong in source Git. Reports, identity files, browser profiles, traces, sensitive logs and credentials remain excluded. Preserve MIT and third-party terms. The owner separately approved public GitHub Pages publication of the prepared in-development candidate at `https://kostrubin.github.io/a11y-workbench/`. This overrides the earlier deployment/public-preview ban only for that candidate: use ordinary reviewed static-file commits/pushes on `gh-pages` and native branch Pages deployment; reviewed source remains on `work`. Actual publication status is recorded in GITHUB-PAGES.md. Do not request the same approval again or treat authorization as live-site evidence.
+
+Native standard free Pages execution is allowed and may appear in Actions. Keep custom CI inactive in docs/ci/ci.yml.example; do not add a custom workflow, larger runner, cache or separately retained Actions artifact. Browser acceptance remains BLOCKED, not accepted P0. Preserve `SITE_RELEASE_APPROVED=false` and empty `SITE_PUBLIC_ORIGIN`: indexing is not approved. Other deployments/previews, GitHub Releases, package publication, additional spending, other projects and Cloud access/network/sandbox changes remain outside this approval.
 
 The prior CLI authentication results were scoped to their respective sessions. A local CLI was reported to list tasks successfully while a Cloud-workspace CLI returned 401. Neither is a prerequisite for engineering in the existing owner-selected workspace; do not repeat login loops or create another task merely for delegation.
 

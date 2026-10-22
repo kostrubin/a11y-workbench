@@ -1,5 +1,5 @@
 {
-  "status": "PASS_STATIC_ARTIFACT_CHECKS",
+  "status": "PUBLISHED_GITHUB_VERIFIED_BROWSER_ACCEPTANCE_BLOCKED",
   "basePath": "/a11y-workbench",
   "authoredRoutes": 15,
   "framework404": true,
@@ -10,10 +10,8 @@
     "/a11y-workbench/_next/static/chunks/918.66653653c5feb8b4.js"
   ],
   "browserExecution": "BLOCKED; static checks do not establish browser behavior",
-  "deployment": false,
+  "deployment": true,
   "indexing": false,
-  "publicationStatus": "NOT_PUBLISHED_PENDING_EXPLICIT_OWNER_DECISION",
-  "prospectiveUrl": "https://kostrubin.github.io/a11y-workbench/",
   "sourceMode": "existing Cloud workspace, reviewed source on work",
   "buildCommand": "npm run build:pages",
   "buildStatus": "PASS",
@@ -34,10 +32,75 @@
     "staticBytes": 3144053,
     "files": 128
   },
+  "preparationSnapshot": {
+    "publicationStatus": "NOT_PUBLISHED_PENDING_EXPLICIT_OWNER_DECISION",
+    "repositoryPagesState": {
+      "hasPages": false,
+      "pagesResourceHttpStatus": 404,
+      "ghPagesBranchExists": false,
+      "settingsChanged": false
+    }
+  },
+  "staticArtifactStatus": "PASS_STATIC_ARTIFACT_CHECKS",
+  "publicationStatus": "PUBLISHED_GITHUB_VERIFIED",
+  "url": "https://kostrubin.github.io/a11y-workbench/",
+  "demoPublicationAuthorized": true,
+  "acceptedP0ReleaseAuthorized": false,
+  "publication": {
+    "status": "PUBLISHED_GITHUB_VERIFIED",
+    "url": "https://kostrubin.github.io/a11y-workbench/",
+    "ownerApprovalReceived": true,
+    "demoPublicationAuthorized": true,
+    "acceptedP0ReleaseAuthorized": false,
+    "publishedCommit": "f288edfc43e422b541cfd9b820d0b2f44eef65da",
+    "artifactSourceCommit": "be46d5cc78d0c2e1c1d17db55b1e3d1cea1c9da1",
+    "branch": "gh-pages",
+    "path": "/",
+    "pagesApi": {
+      "status": "built",
+      "public": true,
+      "httpsEnforced": true,
+      "buildType": "legacy"
+    },
+    "nativeWorkflow": {
+      "id": 39716613430,
+      "url": "https://github.com/kostrubin/a11y-workbench/actions/runs/39716613430",
+      "status": "completed",
+      "conclusion": "success",
+      "headSha": "f288edfc43e422b541cfd9b820d0b2f44eef65da"
+    },
+    "directHttpsVerification": {
+      "status": "BLOCKED_BY_CLOUD_OUTBOUND_PROXY",
+      "curlExit": 56,
+      "reportedOriginHttpStatus": "000",
+      "connectProxyHttpStatus": 403,
+      "originBodyBytes": 0,
+      "error": "CONNECT tunnel failed, response 403",
+      "interpretation": "The proxy rejected CONNECT before any origin response/body; this does not establish that the published site returned HTTP 403.",
+      "remoteWebReader": "INACCESSIBLE",
+      "interactiveBrowser": "NOT VERIFIED; opening/rendering was not confirmed",
+      "networkSettingsChanged": false
+    },
+    "browserAcceptance": "BLOCKED",
+    "indexingAuthorized": false,
+    "indexingActivated": false,
+    "customWorkflowCreated": false,
+    "additionalSpending": false,
+    "deployment": {
+      "id": 7242897689,
+      "status": "success",
+      "environment": "github-pages",
+      "environmentUrl": "https://kostrubin.github.io/a11y-workbench/",
+      "logUrl": "https://github.com/kostrubin/a11y-workbench/actions/runs/39716613430/job/119620183449",
+      "createdAt": "2026-10-22T03:24:28Z"
+    }
+  },
   "repositoryPagesState": {
-    "hasPages": false,
-    "pagesResourceHttpStatus": 404,
-    "ghPagesBranchExists": false,
-    "settingsChanged": false
+    "hasPages": true,
+    "pagesResourceHttpStatus": 200,
+    "ghPagesBranchExists": true,
+    "sourceBranch": "gh-pages",
+    "sourcePath": "/",
+    "httpsEnforced": true
   }
 }

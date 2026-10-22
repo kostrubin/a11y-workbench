@@ -2,7 +2,7 @@
 
 ## Candidate status
 
-The P0 implementation is present in the owner-selected existing Cloud workspace. It is an **implementation candidate with blocked browser verification**, not an unconditionally accepted or released product. No separate environment or competing task was created. The environment's name and Only me metadata remain UNVERIFIED; the owner's explicit selection authorizes engineering in the existing workspace without changing access settings.
+The P0 implementation is present in the owner-selected existing Cloud workspace. It is an **implementation candidate with blocked browser verification**. The owner-approved Pages demonstration is published; this does not establish an accepted P0/product release. No separate environment or competing task was created. The environment's name and Only me metadata remain UNVERIFIED; the owner's explicit selection authorizes engineering in the existing workspace without changing access settings.
 
 ## Executed checks
 
@@ -25,11 +25,11 @@ The P0 implementation is present in the owner-selected existing Cloud workspace.
 
 The original archive's 24 preparation tests are historical packaging checks. They are not included as application evidence. Current core tests use the independent F1–F5 fixture oracle and separate security cases. CLI tests include real loopback redirect guards and a missing-browser error-output case; the latter proves failure behavior, not a successful nine-state capture.
 
-## GitHub Pages preparation
+## GitHub Pages publication
 
 The project-path build and static artifact checks pass with `/a11y-workbench`: fifteen authored pages plus the framework 404, correctly mounted HTML/CSS/JS, both lazy worker chunks, `.nojekyll`, MIT and installed third-party license/NOTICE texts. Current non-browser tests total **52 PASS, 0 FAIL, 0 skipped**; prefix preview tests use real loopback HTTP, including deep links, assets, redirects and traversal/mount isolation. Default root hosting is checked separately after the project-path build.
 
-`docs/evidence/pages.json` records the reviewed artifact counts. These are static/HTTP checks, not browser execution. Pages is not enabled, the prospective address is not a live-site claim, no custom workflow was created, and indexing remains off. See GITHUB-PAGES.md for the concrete pending owner publication decision. Existing browser/axe/AT acceptance limitations still apply.
+`docs/evidence/pages.json` records the reviewed artifact counts and the owner-approved Pages publication at [A11y Workbench](https://kostrubin.github.io/a11y-workbench/). GitHub reports `built`, public visibility and enforced HTTPS; [native workflow `39716613430`](https://github.com/kostrubin/a11y-workbench/actions/runs/39716613430) completed successfully for exact artifact commit `f288edfc43e422b541cfd9b820d0b2f44eef65da`. Pages deployment `7242897689` also reports `success` with the expected site environment URL. These observations verify publication beyond a settings save. Direct public HTTPS checks from Cloud are BLOCKED at the outbound proxy: curl exit `56`, origin HTTP status `000`, CONNECT HTTP 403 and zero origin body bytes. This does not establish a site HTTP 403. The remote web reader could not access the URL, and browser panel opening/rendering was not confirmed. No direct body/assets/browser pass is claimed and no network/sandbox setting was changed. No custom workflow was created and indexing remains off. See GITHUB-PAGES.md for the completed scoped authorization and detailed publication evidence. Existing browser/axe/AT acceptance limitations still apply.
 
 ## Per-acceptance evidence
 
@@ -52,7 +52,7 @@ The project-path build and static artifact checks pass with `/a11y-workbench`: f
 | SEC-03 | BLOCKED | Byte/depth/string/node/count/timeout/cancel tests pass; UI preservation/recovery unavailable |
 | SEC-04 | BLOCKED | JSON/Markdown omission and safe evidence tests pass; browser download path unavailable |
 | SEC-05 | BLOCKED | Namespace/HMAC identity tests pass; UI warning behavior unavailable |
-| SEC-06 | PASS | Reviewed synthetic repository, no credentials/user captures, lockfile/advisory/license inventory, no deployment credentials or active workflows |
+| SEC-06 | PASS | Reviewed synthetic repository, no credentials/user captures, lockfile/advisory/license inventory, no committed deployment credentials or custom workflows; native Pages deployment is separately approved |
 | UX-01 | BLOCKED | Keyboard/focus tests registered, browser unavailable |
 | UX-02 | BLOCKED | Reflow/reduced-motion/screenshot tests registered; no screenshot or actual browser zoom executed |
 | UX-03 | BLOCKED | Scoped axe and corrected-pattern matrix registered; engines unavailable |
@@ -74,6 +74,6 @@ Human assistive-technology sessions, real browser zoom, visual screenshot inspec
 
 ## Release and recovery
 
-SITE_RELEASE_APPROVED remains false and SITE_PUBLIC_ORIGIN empty. No deployment, public preview hosting, GitHub Release, package publication, indexing activation, enabled CI or additional spending occurred. The CI file is an inactive example under docs/ci.
+SITE_RELEASE_APPROVED remains false and SITE_PUBLIC_ORIGIN empty. The owner-approved in-development Pages demonstration is published through the native branch deployment workflow. No custom CI, other deployment target, GitHub Release, package publication, indexing activation or additional spending occurred. The custom CI file remains an inactive example under docs/ci; native Pages execution is recorded separately. No further approval for this same Pages publication is pending.
 
 To complete the blocked gates, the existing environment needs its approved pinned Playwright artifacts and a sandbox-capable browser runtime. The observed download host is cdn.playwright.dev. Current continuation does not authorize changing the environment's network or sandbox settings. After a supported remedy, run the local pinned browser install, browser doctor, Chromium and available engine suites, actual CLI capture and browser performance/privacy checks. Preserve this candidate and continue; do not recreate the project.

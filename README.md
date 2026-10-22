@@ -2,9 +2,9 @@
 
 An open-source accessibility workbench in development for inspecting automated findings, comparing compatible runs, recording manual checks and learning from executable form, dialog and menu examples.
 
-**Status: implementation in development, with browser verification blocked.** Application code, a shared processing core, the capture CLI and tests are now present. This is not a released or fully accepted accessibility tool. Dependency installation, the fifteen-route static build, strict typing, lint and 52 non-browser tests passed in the selected Cloud workspace; exact acceptance results are tracked in [the verification record](docs/VERIFICATION.md). The pinned browser download currently fails with a proxy `403` from `cdn.playwright.dev`. No successful E2E run, real capture, screenshot or human assistive-technology session is claimed.
+**Status: public in-development demonstration, with browser verification blocked.** Application code, a shared processing core, the capture CLI and tests are now present. The owner-approved Pages publication is not a fully accepted accessibility product release. Dependency installation, the fifteen-route static build, strict typing, lint and 52 non-browser tests passed in the selected Cloud workspace; exact acceptance results are tracked in [the verification record](docs/VERIFICATION.md). The pinned browser download currently fails with a proxy `403` from `cdn.playwright.dev`. No successful E2E run, real capture, screenshot or human assistive-technology session is claimed.
 
-There is no deployed website. Public source publication does not authorize deployment, public previews, GitHub Releases, package publication, website indexing or additional spending.
+[Open the GitHub Pages demonstration](https://kostrubin.github.io/a11y-workbench/). GitHub confirms Pages status `built` and the [native deployment workflow succeeded](https://github.com/kostrubin/a11y-workbench/actions/runs/39716613430). Direct HTTPS verification from Cloud is blocked before the site response: its outbound proxy rejects CONNECT with HTTP 403. Browser rendering/behavior remains unverified; this proxy failure is not a site HTTP 403 result. The owner explicitly approved this demonstration; other deployment targets, GitHub Releases, package publication, website indexing and additional spending remain outside that approval.
 
 ## What the implementation contains
 
@@ -45,7 +45,7 @@ Dependency installation alone does not prove browser availability. The current d
 
 ## GitHub Pages compatibility
 
-A project-path static build is prepared for the prospective address `https://kostrubin.github.io/a11y-workbench/`. **It is not published.** The owner's question about feasibility has not been treated as cancellation of the earlier explicit deployment prohibition. Publication of this in-development candidate requires a separate owner decision; browser acceptance remains blocked.
+The owner-approved static demonstration is published at [kostrubin.github.io/a11y-workbench](https://kostrubin.github.io/a11y-workbench/). The published `gh-pages` commit is `f288edfc43e422b541cfd9b820d0b2f44eef65da`, matching the reviewed 128-file artifact built from `be46d5c`. GitHub reports Pages `built`, public visibility and enforced HTTPS; native workflow `39716613430` and Pages deployment `7242897689` succeeded for that exact commit. Browser acceptance remains blocked, and the blocked direct HTTPS/body/asset verification is separately recorded in [the publication evidence](docs/GITHUB-PAGES.md).
 
 ```bash
 npm run build:pages
@@ -55,7 +55,7 @@ npm run preview -- --base-path /a11y-workbench
 
 These commands build and check files in the current development environment. They do not enable Pages or create a public preview. The build uses `/a11y-workbench` for routes, assets and workers, includes `.nojekyll` and installed license/NOTICE texts, and preserves `SITE_RELEASE_APPROVED=false`, empty `SITE_PUBLIC_ORIGIN`, per-page `noindex`, and no sitemap/canonicals. The default root-hosted build remains available with `npm run build`.
 
-The proposed publication route is a separate `gh-pages` branch containing only the reviewed generated site. GitHub Pages is available for this public repository on GitHub Free. Branch publishing uses GitHub's native Pages deployment and may appear in Actions; no custom workflow, larger runner, cache or separately retained Actions artifact is proposed. Source `work` and repository visibility are preserved. See [the prepared publication decision](docs/GITHUB-PAGES.md).
+Publication uses a separate `gh-pages` branch containing only the reviewed generated site. GitHub Pages is available for this public repository on GitHub Free. The successful native Pages deployment appears in Actions; no custom workflow, larger runner, cache or separately retained Actions artifact was introduced. Source `work` and repository visibility are preserved. See [the publication record](docs/GITHUB-PAGES.md).
 
 ## Try the workflow
 
@@ -120,7 +120,7 @@ docs/           Contracts, implementation notes, decisions and observed evidence
 
 The import worker enforces resource limits and cancellation; failed imports preserve the last valid workspace. Canonical records are built by allowlist. Comparison requires compatible per-state metadata and exact rule/subject evaluation evidence rather than approximate selector matching.
 
-Reports and keys stay in session memory: P0 has no uploads, accounts, analytics, runtime AI, remote fonts, localStorage/IndexedDB report persistence or report service worker. Imported links and HTML do not become executable UI. Same-origin application assets can still load, and a future host could log ordinary page requests; local processing is not a promise that no data ever leaves a device.
+Reports and keys stay in session memory: P0 has no uploads, accounts, analytics, runtime AI, remote fonts, localStorage/IndexedDB report persistence or report service worker. Imported links and HTML do not become executable UI. Same-origin application assets can still load, and GitHub Pages may log ordinary page requests; local processing is not a promise that no data ever leaves a device.
 
 Exports omit source HTML, selectors, page text, accessible names, form values, page URLs, literal messages, free-text notes, tester context and identity keys. Opaque aliases and fingerprints remain pseudonymous and may reveal structure or equality. Clear cannot delete previously downloaded files or guarantee forensic memory erasure. Read [security/privacy](docs/SECURITY-PRIVACY.md) and the in-app privacy page before sharing any report.
 
@@ -130,7 +130,7 @@ Use only the existing public [kostrubin/a11y-workbench](https://github.com/kostr
 
 Do not publish customer captures, browser profiles, auth states, identity keys or sensitive traces. Local reports and identity files belong in the ignored directories above. This project does not claim a private security-reporting channel is configured; inspect the repository’s actual controls before sharing sensitive details.
 
-The owner has selected the current existing Cloud workspace for direct engineering. No new environment, duplicate task or nested CLI launch is required to continue there. Source authorization does not authorize site deployment, public preview hosting, GitHub Releases, packages, indexing or new spending. The npm workspaces are marked private to prevent accidental package publication; the GitHub source repository remains public. `noindex` is not access control.
+The owner has selected the current existing Cloud workspace for direct engineering. No new environment, duplicate task or nested CLI launch is required to continue there. The owner separately approved this repository's prepared Pages demonstration. That scoped approval does not authorize other deployment targets, GitHub Releases, packages, indexing, new spending or Cloud security-setting changes. The npm workspaces are marked private to prevent accidental package publication; the GitHub source repository remains public. `noindex` is not access control.
 
 ## License and documents
 

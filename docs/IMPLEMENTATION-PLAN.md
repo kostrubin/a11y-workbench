@@ -2,7 +2,7 @@
 
 ## Completion target
 
-Produce a finished, reproducible P0 implementation candidate and evidence for owner review. Reviewed source, documentation, tests and synthetic examples may be committed and pushed to the public `kostrubin/a11y-workbench` working branch, as authorized by the owner. No website deployment, public preview, GitHub Release, package publication, website indexing or additional spending is included. This plan is an execution sequence, not a substitute for the complete contract in the six specification documents. Resolve routine implementation details autonomously. If evidence reveals a specification defect, make the smallest compatible correction, record the reason, and preserve scope and approval boundaries.
+Produce a finished, reproducible P0 implementation candidate and evidence for owner review. Reviewed source, documentation, tests and synthetic examples may be committed and pushed to the public `kostrubin/a11y-workbench` working branch, as authorized by the owner. The owner subsequently approved publication of the prepared in-development GitHub Pages candidate only; GITHUB-PAGES.md records the successful native deployment and verification limits. Other deployments/previews, GitHub Releases, packages, indexing and additional spending remain outside scope. This plan is an execution sequence, not a substitute for the complete contract in the six specification documents. Resolve routine implementation details autonomously. If evidence reveals a specification defect, make the smallest compatible correction, record the reason, and preserve scope and approval boundaries.
 
 ## Repository shape
 

@@ -5,11 +5,17 @@ CURRENT OWNER POLICY (supersedes the original archive):
 kostrubin/a11y-workbench remains PUBLIC and open source. Reviewed source, docs,
 tests and synthetic examples may be committed/pushed normally to a working
 branch without renewed approval. The private-repository prerequisite is revoked.
-The dedicated cloud environment remains private / Only me. No deployments,
-public previews, GitHub Releases, packages, website indexing, additional spending,
-force pushes or branch-protection bypass are authorized. SITE_RELEASE_APPROVED
-stays false. Preserve MIT and required dependency notices. Review all files and
-commits for secrets, personal data, real reports and sensitive logs before push.
+The owner selected the existing Cloud workspace; preserve its access/network/
+sandbox settings and record unavailable name/Only me metadata as UNVERIFIED.
+The owner separately approved the prepared in-development GitHub Pages candidate
+at https://kostrubin.github.io/a11y-workbench/. Its reviewed static gh-pages tree
+and native standard Pages publication are authorized; actual publication is
+recorded in docs/GITHUB-PAGES.md. Other deployments/previews, GitHub Releases,
+packages, website indexing, additional spending, force pushes and protection
+bypass remain unauthorized. No custom workflow, larger runner, cache or separately
+retained Actions artifact. SITE_RELEASE_APPROVED stays false; SITE_PUBLIC_ORIGIN
+stays empty. Preserve MIT and dependency notices. Review exact files/commits for
+secrets, personal data, real reports and sensitive logs before every public push.
 
 For current repository checks, run from repository root:
   python3 scripts/validate-preparation.py
@@ -44,7 +50,7 @@ Dependency-free subset:
 Optional structural schema/format validation with already installed jsonschema:
   python3 a11y-workbench/scripts/validate-preparation.py --schema
 
-Current preparation-container versions (NOT the target Codex Cloud environment):
+Historical preparation-container versions (NOT the current Cloud implementation runtime):
   python: Python 3.13.5
   node: v22.16.0
   npm: 10.9.2
@@ -56,7 +62,7 @@ The environment doctor correctly reported the application as NOT IMPLEMENTED.
 Its --browser path correctly returned BLOCKED without project dependencies;
 this negative-path test is not an actual Chromium launch.
 
-All 26 app acceptance criteria remain NOT RUN.
+At original archive validation, all 26 app acceptance criteria were NOT RUN.
 Historical GitHub repository access: 404 in the original preparation session;
 superseded by verified current access to the existing PUBLIC repository.
 Repository creation/push: NOT DONE.

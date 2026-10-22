@@ -6,7 +6,7 @@ This document describes the implementation and reproducible workflow. It is not 
 
 The owner explicitly selected the existing Cloud workspace for direct engineering. Work continues in that selected executor without creating another environment, competing task or nested Codex process. The environment interface does not expose a verified name or an `Only me` label; those metadata remain **UNVERIFIED**. Missing display metadata is not treated as a new authorization gate after the owner’s selection. No private chat/runtime identifiers, credentials or runtime logs belong in the public source.
 
-Reviewed source, project documentation, tests and synthetic examples may be committed and pushed normally to the public `work` branch. No force push, branch-protection bypass or visibility change is authorized. Source publication does not authorize deployment, public preview hosting, GitHub Releases, package publication, website indexing or additional spending. Keep `SITE_RELEASE_APPROVED=false` and `SITE_PUBLIC_ORIGIN` empty.
+Reviewed source, project documentation, tests and synthetic examples may be committed and pushed normally to the public `work` branch. No force push, branch-protection bypass or visibility change is authorized. Source permission alone does not authorize deployment. The owner separately approved the prepared in-development GitHub Pages candidate; GITHUB-PAGES.md records its verified native publication and blocked direct Cloud/browser checks. Other deployments/previews, GitHub Releases, packages, indexing and additional spending remain unauthorized. Keep `SITE_RELEASE_APPROVED=false` and `SITE_PUBLIC_ORIGIN` empty.
 
 ## Structure and runtime
 
