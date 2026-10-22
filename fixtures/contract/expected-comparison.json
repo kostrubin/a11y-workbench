@@ -1,0 +1,46 @@
+{
+  "fixtureKind": "hand-authored-contract-not-engine-output",
+  "baseline": "baseline-v1.json",
+  "candidate": "candidate-v1.json",
+  "byFixtureKey": {
+    "F1": "persisting",
+    "F2": "not-detected",
+    "F3": "persisting",
+    "F4": "unassessable",
+    "F5": "new"
+  },
+  "counts": {
+    "new": 1,
+    "persisting": 2,
+    "changed": 0,
+    "not-detected": 1,
+    "unassessable": 1
+  },
+  "identities": {
+    "F1": {
+      "stateId": "forms.initial",
+      "ruleId": "label",
+      "subjectId": "forms.name"
+    },
+    "F2": {
+      "stateId": "forms.initial",
+      "ruleId": "label",
+      "subjectId": "forms.email"
+    },
+    "F3": {
+      "stateId": "dialog.open",
+      "ruleId": "button-name",
+      "subjectId": "dialog.close"
+    },
+    "F4": {
+      "stateId": "menu.open",
+      "ruleId": "button-name",
+      "subjectId": "menu.trigger"
+    },
+    "F5": {
+      "stateId": "forms.initial",
+      "ruleId": "image-alt",
+      "subjectId": "forms.illustration"
+    }
+  }
+}

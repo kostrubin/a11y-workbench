@@ -1,0 +1,171 @@
+A11y Workbench — autonomous Codex Cloud implementation prompt, preparation v1.1
+
+Use this instruction in the dedicated authorized Codex Cloud environment. Read the repository seed or the attached/embedded seed first. Preserve subsequent work. Account connections and environment permissions must already exist; this prompt cannot create access by assertion.
+
+Build A11y Workbench autonomously to a complete, verified P0 implementation candidate.
+
+You are the engineering owner for this task. Act as a senior product engineer responsible for working software, accessibility, security, tests, useful authored content and an honest handoff. Implement the project in the selected authorized repository. Do not merely describe how it could be built, generate a scaffold, deliver only a landing page, or stop after writing a plan.
+
+The owner delegates routine product and engineering decisions. Ask the owner only when a concrete decision changes budget, security boundaries, sensitive-data handling, or release. First complete all unaffected work and make the decision reviewable. Respect the platform's permissions and any higher-priority instructions. Nothing here authorizes bypassing a permission, accessing credentials, or weakening the sandbox.
+
+1. STARTING POINT AND SOURCE OF TRUTH
+
+The intended standalone repository is kostrubin/a11y-workbench. A renamed repository is acceptable only when the owner explicitly selected it for this project. Do not change other projects, repositories, account settings, protected branches or unrelated existing files.
+
+OWNER POLICY UPDATE: kostrubin/a11y-workbench remains PUBLIC and open source. The former private-repository prerequisite is revoked. The owner authorizes normal commits and pushes of reviewed source code, project documentation, tests and synthetic examples to a working branch without renewed approval. Inspect files and prepared commits before every public push. Never publish secrets, tokens, personal data, real user reports or sensitive logs. Preserve MIT for original work and all required third-party notices. Do not change visibility, force push or bypass branch protection. Keep the dedicated Codex Cloud environment private / Only me. Public source publication does not authorize deployment, public previews, GitHub Releases, package publication, site indexing or additional spending. Keep SITE_RELEASE_APPROVED=false; describe the project as in development until evidence supports a stronger status.
+
+Inspect the actual working tree before editing. If this is the preparation seed, read AGENTS.md, then all documents it names. If the self-contained version of this prompt includes an EMBEDDED SEED section and these files are absent from an otherwise empty authorized project repository, materialize those exact relative files first. A newly initialized GitHub README is acceptable; preserve it until its purpose is understood. Never overwrite an existing implementation or instruction file blindly with an embedded older seed. On continuation, actual project progress and subsequent owner instructions take precedence over this initial snapshot.
+
+The preparation also contains machine-readable contracts under spec/, schemas/report-bundle.schema.json and hand-authored fixtures under fixtures/contract/. Read their README files: sentinel engine versions are not evidence of real scanning. Generate actual engine captures separately.
+
+The authoritative contracts are:
+- docs/PRODUCT-SPEC.md: target users, useful journeys and P0 scope.
+- docs/ARCHITECTURE.md: report schema, normalization, identity and comparison evidence.
+- docs/SECURITY-PRIVACY.md: trust boundaries, export allowlist and local capture restrictions.
+- docs/DESIGN-SEO.md: interaction design, exact routes and indexing controls.
+- docs/ACCEPTANCE.md: deterministic fixtures and functional/security/UX/performance/SEO evidence.
+- docs/IMPLEMENTATION-PLAN.md: milestones, repository shape and real command contract.
+- docs/RESEARCH-BASELINE.md: verified primary sources and explicitly unproven product hypotheses.
+- docs/CLOUD-SETUP.md: environment prerequisites and account/setup limits.
+
+Read docs/PROGRESS.json, docs/DECISIONS.md and docs/VERIFICATION.md before resuming. The initial seed is not an implemented app. Do not repeat its preparation status in place of doing this task. If a minor internal ambiguity remains, resolve it conservatively, record the reasoning, and continue. Do not expand the approved scope or add a new product-approval phase.
+
+2. THE PRODUCT TO DELIVER
+
+Create an English-language accessibility workbench for frontend engineers, QA and small maintainers without a dedicated accessibility team. Its immediate value is connecting observed findings to a reproducible interface state, a trustworthy comparison, the remaining manual review and an executable correction.
+
+The main journey is:
+Try a synthetic sample -> import a supported report -> inspect findings and outcome counts -> compare compatible baseline/candidate runs -> record clearly user-reported manual checks -> export minimized JSON or Markdown -> inspect the relevant corrected pattern and regression test.
+
+Every part must work without an account. No file upload service or server-side scanning. Processing stays in the browser session. The application itself needs no OpenAI API key, runtime LLM, paid API, database, authentication, telemetry, remote fonts or browser persistence. Build a useful deterministic tool; do not add an AI chat UI or incur per-visitor inference costs.
+
+P0 has exactly three interactive patterns: form validation, modal dialog, and single-level action menu. Each has an intentionally broken and corrected variant, clear explanations, runnable tests and manual checks. Corrected is the default. Deliberate failures live in controlled fixture surfaces with a dependable outside reset/exit; do not make the workbench shell inaccessible in the name of demonstration.
+
+Required named states are forms.initial, forms.invalid, forms.success, dialog.closed, dialog.open, dialog.saved, menu.closed, menu.open and menu.selected. The localhost CLI ships as part of P0 and captures the bundled synthetic recipes. It is optional for a visitor to run. P0 documents adaptation to one's own app but does not execute arbitrary imported adapters or remote scanning recipes.
+
+3. TECHNICAL DEFAULTS ALREADY AUTHORIZED
+
+Use one small npm-workspace monorepo: apps/web for a Next.js static export with React and strict TypeScript, packages/core for pure processing contracts, packages/cli for the Playwright/axe runner, reviewed synthetic fixtures and focused tests. No microservices, server features required at runtime, database, content service or distributed-agent framework.
+
+Choose supported stable versions that actually work together. Verify relevant current official documentation and dependency licenses. Pin the tested Node/npm runtime and dependency versions; commit a single npm lockfile. Do not assume a package version or framework command exists. Generate the initial lockfile through normal dependency resolution; use npm ci afterward. No unbounded dependency upgrades, prereleases or global npx-latest bootstrapping.
+
+Use the existing approved cloud environment and its limited network access. The seed has no package manifest, so initial dependency resolution needs approved network access during the task, not just during the seed setup. Never silently broaden networking to work around a blocked download. State the exact missing host or prerequisite if necessary and complete independent work. No product secrets are required.
+
+Use headless Playwright from pinned local dependencies to test the real application, even if interactive browser/computer-use tools are unavailable. Verify an actual browser launch; dependency installation alone is insufficient. Install browsers only in the authorized environment and use supported preinstalled operating-system dependencies. Do not use sudo, disable a security control, purchase a test service, or falsely pass unavailable browser checks. Firefox/WebKit coverage is required where executable, with unavailable engines explicitly recorded.
+
+4. REPORT AND COMPARISON CORRECTNESS
+
+Implement the executable schemaVersion "1.0" contract, including validation, additionalProperties:false at canonical boundaries, documented caps and explicit failure states. Treat all files as untrusted data. Support the defined raw axe JSON shape and canonical bundle; do not pretend to import arbitrary Playwright HTML reports, trace ZIPs, every axe format or future schema versions.
+
+Preserve violations, incomplete results, passes and inapplicable counts separately. Incomplete means needs review. Missing information remains unknown. An empty result is not proof that a scan completed. Rule counts and affected-node counts are different quantities and must be labelled correctly.
+
+Use stable opaque explicit subject IDs where available, otherwise the specified namespace-scoped HMAC identity mechanism. Browser identity keys remain memory-only; do not export them. Never match by accessible name, user value, array position, approximate selector similarity or URL. Unknown identifiers may be shown as escaped text but do not invent trusted descriptions or links for them.
+
+Compare per state only with compatible capture metadata. A list of executed rules and a list of observed subjects do not by themselves prove that a particular rule evaluated a particular subject. Use capture.evaluatedPairs as specified. "Newly detected" and "Not detected in this run" require an actual corresponding pass for the exact rule/subject in the opposite comparable run. Missing states/elements, incomplete checks, namespace changes, changed engine/rules/scope/environment, partial captures and insufficient evidence must not manufacture improvement.
+
+Expose the five canonical comparison categories: persisting -> Still detected; changed -> Changed; new -> Newly detected; not-detected -> Not detected in this run; unassessable -> Cannot assess. Explain the reason in the interface. Raw axe imports without adequate provenance remain useful for inspection and descriptive side-by-side views; do not promise a trustworthy regression verdict when the input cannot support it.
+
+Manual checks start not-run and are distinct from automation. Support pass/fail/not-applicable with local observation/reason as specified. Notes and tester context stay session-only and are excluded from P0 exports. Reimported manual statuses remain explicitly user-reported with observation details absent. Never mark a human screen-reader session as performed because automated focus or axe tests passed.
+
+5. PRIVACY AND SECURITY THAT MUST ACTUALLY WORK
+
+Enforce bounded file size, state count, node/evaluated-pair counts, strings, nesting and processing time in both relevant core/CLI paths. Parse and normalize in a cancellable browser worker; failed imports preserve the last valid workspace. Reject malformed/unsupported/deceptive objects atomically. Do not evaluate imported code, selectors, URLs, HTML, Markdown or property names.
+
+Render imported data as text. Never follow imported helpUrl values or fetch content based on report text. Trusted explanations and outbound references come only from the bundled source catalog. A URL-looking canary must never cause a request.
+
+Construct exports from the exact allowlist rather than serializing raw imports or UI state. Exclude DOM/HTML, selectors, page text, accessible names, form values, URLs, credentials, free-text notes, raw check messages, identity keys and arbitrary imported fields. Escape Markdown. Fixed generated filenames, export preview, explicit download and clear-workspace behavior must be implemented and tested. Pseudonymous IDs are not guaranteed anonymous.
+
+Do not persist reports or keys in localStorage, IndexedDB, cache/service workers or logs. No remote analytics, error reporter or public report sharing. Monitor actual network behavior during import, comparison, manual edits and export. Ordinary host page logs are a separate limitation; do not claim that absolutely no data ever leaves a device.
+
+The local CLI accepts a single explicit HTTP loopback origin with an explicit port and a specified output path. Follow all exact-host, origin, redirect, request-method, browser-context, identity-file, timeout and output-file requirements. It is for a trusted operator-controlled local application, not a sandbox for malicious sites. Only bundled synthetic demonstrations may perform the documented form/command actions. Block cross-origin requests and record incomplete/error capture honestly when blocked resources affect it. No crawling, authentication, stored profiles, arbitrary callbacks, CDP or remote targets.
+
+6. INTERFACE AND ORIGINAL CONTENT
+
+Follow docs/DESIGN-SEO.md: restrained warm/light surface, dark readable text, accessible teal accent, system fonts, clear state/filter/detail hierarchy. Use semantic native controls where possible. Work at 390px and 1280px and check 320px reflow. Verify actual colors, focus, errors, keyboard navigation, reduced motion and zoom where the environment supports it. A screenshot is not a keyboard test.
+
+Show a real synthetic sample immediately. Provide loading, cancellation, invalid/oversized-file, empty, no-findings and incompatible-comparison states. Keep a labelled file picker alongside drag/drop. Explain why a comparison is limited and what input would improve it. The default journey must remain useful without a CLI or an existing private report.
+
+Create exactly these fifteen authored routes, using consistent trailing-slash behavior:
+/
+/workbench/
+/patterns/forms/
+/patterns/dialog/
+/patterns/menu-button/
+/guides/read-axe-results/
+/guides/compare-reports/
+/guides/form-errors/
+/guides/dialog-focus/
+/guides/menu-or-disclosure/
+/guides/keyboard-review/
+/docs/import-format/
+/privacy/
+/limitations/
+/about/
+
+Each of the six guides must solve its specific task and cite primary sources. Pattern pages must demonstrate working behavior and connect to original code and executable tests. Maintain a machine-readable route/case/source/fixture/test manifest. Keep published snippets in sync with source. Do not copy example code without respecting its license. Do not invent user research, competitor testing, traffic estimates, testimonials, reviews or proven differentiation. The desk-research baseline is a hypothesis, not a reason to postpone the approved bounded implementation.
+
+7. SEO WITHOUT UNAUTHORIZED RELEASE
+
+Generate meaningful static HTML: unique titles/descriptions, proper headings, explanatory text, crawlable links and directly accessible routes. Core educational content must not require hydration to become readable. Validate deep links and refresh behavior. A route existing is not enough; each needs distinct useful content.
+
+All builds default to non-indexable. SITE_RELEASE_APPROVED=false and an empty SITE_PUBLIC_ORIGIN are the seed defaults. Both a separately approved valid production HTTPS origin and release setting are required before emitting public canonicals and sitemap entries. Reject invalid/local/credential-bearing/placeholder origins. An agent cannot approve release by setting a variable. /workbench/ always stays noindex and out of the sitemap. Imported content never enters metadata, routes, query strings or sitemap.
+
+Do not deploy to obtain a preview or activate indexing to satisfy an SEO test. Verify default and explicitly synthetic configuration cases locally. noindex is not access control, and robots disallow can prevent a crawler from observing it. Document actual exposure honestly. No fake SEO scores or ranking promises, mass-generated keyword pages or structured-data claims unsupported by visible content. Public search-engine submission belongs to a later approved release.
+
+8. EXECUTION PLAN
+
+Proceed through the milestones in docs/IMPLEMENTATION-PLAN.md, using sensible vertical slices:
+M0 environment and reproducible build;
+M1 core/schema/fixtures/comparison;
+M2 complete sample/import/inspect/compare/manual/export/clear journey;
+M3 three patterns and required local capture states;
+M4 authored pages and SEO/indexing controls;
+M5 actual privacy/security/browser/performance verification;
+M6 documentation, evidence and reviewable candidate.
+
+Do not spend the session building a marketing surface while leaving the core mocked. Do not silently convert required P0 behavior into TODOs to declare completion. Use parallel agents for independent work when available; define ownership and integrate shared types deliberately. Agent availability is optional, and their outputs need review. Do not run competing lockfile edits or leave integration broken.
+
+Use normal repository branches/commits and ordinary working-branch pushes to the authorized public repository after reviewing the files and commits. Never force push, publish a GitHub Release, bypass protection, merge a protected branch or change visibility. An external PR/comment/message requires authorization under the active platform/session rules. Do not send messages to others.
+
+9. REQUIRED EXECUTABLE CHECKS
+
+Provide real root scripts: dev, build, typecheck, lint, test, test:e2e, test:a11y, check:content, check:security, check:seo and check. Document static preview and CLI commands. No echo-success, unconditional skips, fake test reports or snapshots rewritten solely to hide regressions. Avoid rerunning an expensive suite without a concrete reason.
+
+Use the independent fixture contract from ACCEPTANCE.md. For the canonical baseline/candidate pair, the expected comparison is one new, two still detected, one not detected in this run, and one cannot assess. A missing menu state never counts as fixed. A changed finding must be shown separately; incomplete/configuration/namespace variants demonstrate uncertainty. Use real installed-engine rule IDs and documented synthetic subject mappings.
+
+Run all E2E-01 through E2E-12 and applicable SEC/UX/PERF/SEO acceptance entries. Actually test hostile input through normalization and the browser UI, network canaries, export omission, clear/reload, keyboard patterns, CLI network restrictions and failure behavior. Broken examples must not justify global axe suppressions. Prefer tests of user behavior and trust boundaries over tests that simply mirror implementation statements.
+
+Measure performance on small and near-limit synthetic inputs in the documented environment, recording actual timings and responsiveness. The targets are laboratory targets, not real-user Core Web Vitals measurements. Inspect representative real screenshots; do not substitute an image generator for evidence.
+
+Fix failing in-scope checks. If a necessary check is unavailable, record BLOCKED or NOT RUN with the exact cause, attempted safe resolution and remaining uncertainty. Complete unaffected work. Do not claim an unconditionally verified candidate while required executable checks fail. Human/assistive-technology evaluation that did not occur remains NOT RUN; document the precise limitation without asking the owner to carry out routine development.
+
+10. SPENDING, CI AND RELEASE BOUNDARIES
+
+No additional spending is authorized. Use the existing subscription/environment allowance; do not purchase credits, enable automatic top-ups, rent runners, subscribe to APIs, register domains, create paid resources or provision hosting. If the platform refuses work because of quota, preserve a checkpoint and report the concrete blocker.
+
+Prepare CI as an inactive template such as docs/ci/ci.yml.example until free capacity or an explicit budget is established. It must have minimal read permissions, pinned reviewed action SHAs, bounded jobs and no publishing credentials. Never add a workflow that may trigger billable jobs merely to demonstrate automation. Do not use privileged untrusted-PR workflows or secrets.
+
+Reviewed source, documentation, tests and synthetic examples may be published by ordinary working-branch commits and pushes to this public repository. No public/private deployment, public preview or demo, GitHub Release, package publication, site indexing activation or additional spending is included. A local static build and reviewed synthetic screenshot are sufficient candidate artifacts. Before asking about website release, finish the concrete candidate, its evidence, exact exposure/configuration proposal and any cost/security decision. Do not request speculative approval halfway through routine implementation.
+
+11. CHECKPOINTS AND CONTINUATION
+
+At each meaningful milestone update docs/PROGRESS.json, docs/DECISIONS.md and docs/VERIFICATION.md. Record completed acceptance IDs, exact commands and exit results, known failures, current files and the next executable action. Preserve a coherent branch or worktree using the platform's supported mechanism. Do not commit real reports, identity keys, secrets, browser profiles or oversized transient traces.
+
+If interrupted by context/session/quota limits, save the most useful possible checkpoint and continuation instructions. Do not claim background work will keep running after a stopped session or create an unbounded self-relaunch loop. On continuation read the actual state, recheck only what changed or is uncertain, and continue instead of restarting. One launch prompt is the desired interface; it is not a guarantee of unlimited compute.
+
+12. FINAL RESPONSE AND DELIVERABLES
+
+Return the final explanation to the owner in Russian. Keep source code, UI and technical repository documentation in English. Lead with what works and whether the result is an implementation candidate, a reviewable candidate with limitations, or still blocked.
+
+Provide:
+- The branch/commit or available code artifact and a concise description of useful completed workflows.
+- Exact verified installation, local run, static build, preview, CLI and test commands.
+- A per-acceptance evidence table using PASS, FAIL, NOT RUN and BLOCKED accurately.
+- Actual dependency/runtime versions and documented performance measurements.
+- Synthetic screenshots where they help assess the UI, plus source and test locations.
+- Security/privacy decisions, missing human AT coverage and remaining limitations.
+- A precise release/budget/security decision only if one is now necessary, including what would become public and what it would cost. Otherwise state that the candidate awaits release approval.
+
+Replace the seed README and verification placeholders with truthful implementation documentation. Maintain MIT licensing for original project work and all applicable third-party notices. Explain the architecture and major tradeoffs clearly enough that another maintainer or potential employer can reproduce and assess the work. Do not manufacture project adoption, performance gains, independent review or accessibility certification.
+
+Begin by inspecting the repository, reading the contracts and verifying the environment. Then carry out the implementation through the required checks without waiting for routine design approval.

@@ -1,0 +1,77 @@
+{
+  "version": "1",
+  "checks": [
+    {
+      "checkId": "keyboard.complete",
+      "title": "Complete the interaction by keyboard",
+      "steps": "Use Tab/Shift+Tab and the documented activation keys. Complete and recover from the task without a pointer.",
+      "expected": "All controls remain reachable and operable.",
+      "initialStatus": "not-run",
+      "reportedBy": "user",
+      "notesExported": false
+    },
+    {
+      "checkId": "focus.visible",
+      "title": "Inspect visible focus",
+      "steps": "Move through each interactive control; inspect the focus indication and whether content obscures it.",
+      "expected": "The current focus remains visibly identifiable.",
+      "initialStatus": "not-run",
+      "reportedBy": "user",
+      "notesExported": false
+    },
+    {
+      "checkId": "form.errors",
+      "title": "Understand field errors",
+      "steps": "Submit invalid synthetic values, locate the errors, correct them, and resubmit.",
+      "expected": "Each error is associated with its field and recovery preserves other values.",
+      "initialStatus": "not-run",
+      "reportedBy": "user",
+      "notesExported": false
+    },
+    {
+      "checkId": "dialog.context",
+      "title": "Understand modal context",
+      "steps": "Using the chosen assistive technology, open the dialog and inspect its name, content context, dismissal and focus return.",
+      "expected": "The user can understand the dialog and return to the invoking context.",
+      "initialStatus": "not-run",
+      "reportedBy": "user",
+      "notesExported": false
+    },
+    {
+      "checkId": "menu.discovery",
+      "title": "Discover and operate the action menu",
+      "steps": "Locate the menu button, open it, navigate commands, activate and dismiss.",
+      "expected": "State, navigation and action feedback are understandable.",
+      "initialStatus": "not-run",
+      "reportedBy": "user",
+      "notesExported": false
+    },
+    {
+      "checkId": "zoom.reflow",
+      "title": "Inspect zoom and reflow",
+      "steps": "Inspect at 320 CSS pixels and, when possible, actual browser zoom at 200 percent.",
+      "expected": "Content and actions remain usable; note browser zoom separately from viewport emulation.",
+      "initialStatus": "not-run",
+      "reportedBy": "user",
+      "notesExported": false
+    },
+    {
+      "checkId": "motion.preference",
+      "title": "Inspect reduced-motion behavior",
+      "steps": "Enable the operating-system/browser reduced-motion preference and repeat the interaction.",
+      "expected": "Nonessential movement is removed and feedback remains understandable.",
+      "initialStatus": "not-run",
+      "reportedBy": "user",
+      "notesExported": false
+    },
+    {
+      "checkId": "screen-reader.feedback",
+      "title": "Assess spoken interaction feedback",
+      "steps": "Record an actual human assistive-technology session for field errors, dialog or action feedback.",
+      "expected": "Expected feedback is understandable in the recorded AT/browser combination.",
+      "initialStatus": "not-run",
+      "reportedBy": "user",
+      "notesExported": false
+    }
+  ]
+}

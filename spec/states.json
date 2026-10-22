@@ -1,0 +1,59 @@
+{
+  "version": "1",
+  "states": [
+    {
+      "stateId": "forms.initial",
+      "patternId": "forms",
+      "sourceRoute": "/patterns/forms/",
+      "syntheticOnly": true
+    },
+    {
+      "stateId": "forms.invalid",
+      "patternId": "forms",
+      "sourceRoute": "/patterns/forms/",
+      "syntheticOnly": true
+    },
+    {
+      "stateId": "forms.success",
+      "patternId": "forms",
+      "sourceRoute": "/patterns/forms/",
+      "syntheticOnly": true
+    },
+    {
+      "stateId": "dialog.closed",
+      "patternId": "dialog",
+      "sourceRoute": "/patterns/dialog/",
+      "syntheticOnly": true
+    },
+    {
+      "stateId": "dialog.open",
+      "patternId": "dialog",
+      "sourceRoute": "/patterns/dialog/",
+      "syntheticOnly": true
+    },
+    {
+      "stateId": "dialog.saved",
+      "patternId": "dialog",
+      "sourceRoute": "/patterns/dialog/",
+      "syntheticOnly": true
+    },
+    {
+      "stateId": "menu.closed",
+      "patternId": "menu",
+      "sourceRoute": "/patterns/menu-button/",
+      "syntheticOnly": true
+    },
+    {
+      "stateId": "menu.open",
+      "patternId": "menu",
+      "sourceRoute": "/patterns/menu-button/",
+      "syntheticOnly": true
+    },
+    {
+      "stateId": "menu.selected",
+      "patternId": "menu",
+      "sourceRoute": "/patterns/menu-button/",
+      "syntheticOnly": true
+    }
+  ]
+}

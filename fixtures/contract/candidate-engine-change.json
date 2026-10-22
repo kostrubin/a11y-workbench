@@ -1,0 +1,164 @@
+{
+  "schemaVersion": "1.0",
+  "normalizationVersion": "1",
+  "reportId": "00000000-0000-4000-8000-000000000104",
+  "createdAt": "2026-10-21T00:00:00Z",
+  "producer": {
+    "name": "a11y-workbench",
+    "version": "0.0.0"
+  },
+  "identity": {
+    "namespace": "00000000-0000-4000-8000-000000000001",
+    "method": "explicit"
+  },
+  "states": [
+    {
+      "stateId": "forms.initial",
+      "patternId": "forms",
+      "capture": {
+        "status": "complete",
+        "engine": {
+          "name": "axe-core",
+          "version": "0.0.1"
+        },
+        "rulesetId": "contract-only.synthetic-v1",
+        "rulesetDigest": "ba2e5523d37991300a57c6c2b6514b75e738b7ef528740d2dafd8faab2bd2276",
+        "scopeId": "contract-only.forms.initial",
+        "environmentDigest": "4ee0946717614f23a45d76b43cd85c452ce88937838abd7b6d9f5e692b38c8e2",
+        "completeness": "producer-attested",
+        "executedRuleIds": [
+          "image-alt",
+          "label"
+        ],
+        "observedSubjectIds": [
+          "forms.email",
+          "forms.illustration",
+          "forms.name"
+        ],
+        "evaluatedPairs": [
+          {
+            "ruleId": "label",
+            "subjectId": "forms.name",
+            "outcome": "violation"
+          },
+          {
+            "ruleId": "label",
+            "subjectId": "forms.email",
+            "outcome": "pass"
+          },
+          {
+            "ruleId": "image-alt",
+            "subjectId": "forms.illustration",
+            "outcome": "violation"
+          }
+        ],
+        "reasonCodes": []
+      },
+      "findings": [
+        {
+          "ruleId": "label",
+          "subjectId": "forms.name",
+          "category": "violation",
+          "impact": "serious",
+          "checks": {
+            "any": [],
+            "all": [],
+            "none": []
+          }
+        },
+        {
+          "ruleId": "image-alt",
+          "subjectId": "forms.illustration",
+          "category": "violation",
+          "impact": "serious",
+          "checks": {
+            "any": [],
+            "all": [],
+            "none": []
+          }
+        }
+      ],
+      "manualChecks": [],
+      "reportedOutcomes": {
+        "violations": {
+          "ruleCount": 2,
+          "nodeCount": 2
+        },
+        "incomplete": {
+          "ruleCount": 0,
+          "nodeCount": 0
+        },
+        "passes": {
+          "ruleCount": 1,
+          "nodeCount": 1
+        },
+        "inapplicable": {
+          "ruleCount": 0,
+          "nodeCount": 0
+        }
+      }
+    },
+    {
+      "stateId": "dialog.open",
+      "patternId": "dialog",
+      "capture": {
+        "status": "complete",
+        "engine": {
+          "name": "axe-core",
+          "version": "0.0.1"
+        },
+        "rulesetId": "contract-only.synthetic-v1",
+        "rulesetDigest": "ba2e5523d37991300a57c6c2b6514b75e738b7ef528740d2dafd8faab2bd2276",
+        "scopeId": "contract-only.dialog.open",
+        "environmentDigest": "4ee0946717614f23a45d76b43cd85c452ce88937838abd7b6d9f5e692b38c8e2",
+        "completeness": "producer-attested",
+        "executedRuleIds": [
+          "button-name"
+        ],
+        "observedSubjectIds": [
+          "dialog.close"
+        ],
+        "evaluatedPairs": [
+          {
+            "ruleId": "button-name",
+            "subjectId": "dialog.close",
+            "outcome": "violation"
+          }
+        ],
+        "reasonCodes": []
+      },
+      "findings": [
+        {
+          "ruleId": "button-name",
+          "subjectId": "dialog.close",
+          "category": "violation",
+          "impact": "serious",
+          "checks": {
+            "any": [],
+            "all": [],
+            "none": []
+          }
+        }
+      ],
+      "manualChecks": [],
+      "reportedOutcomes": {
+        "violations": {
+          "ruleCount": 1,
+          "nodeCount": 1
+        },
+        "incomplete": {
+          "ruleCount": 0,
+          "nodeCount": 0
+        },
+        "passes": {
+          "ruleCount": 0,
+          "nodeCount": 0
+        },
+        "inapplicable": {
+          "ruleCount": 0,
+          "nodeCount": 0
+        }
+      }
+    }
+  ]
+}

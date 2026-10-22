@@ -1,0 +1,96 @@
+A11y Workbench — historical archive preparation validation, v1.1
+Original archive validation date: 2026-10-21
+
+CURRENT OWNER POLICY (supersedes the original archive):
+kostrubin/a11y-workbench remains PUBLIC and open source. Reviewed source, docs,
+tests and synthetic examples may be committed/pushed normally to a working
+branch without renewed approval. The private-repository prerequisite is revoked.
+The dedicated cloud environment remains private / Only me. No deployments,
+public previews, GitHub Releases, packages, website indexing, additional spending,
+force pushes or branch-protection bypass are authorized. SITE_RELEASE_APPROVED
+stays false. Preserve MIT and required dependency notices. Review all files and
+commits for secrets, personal data, real reports and sensitive logs before push.
+
+For current repository checks, run from repository root:
+  python3 scripts/validate-preparation.py
+  python3 scripts/validate-preparation.py --schema
+  bash -n scripts/cloud-setup.sh scripts/environment-doctor.sh
+  bash scripts/cloud-setup.sh
+  bash scripts/environment-doctor.sh
+
+The --schema check uses an already installed jsonschema package. Nothing is
+installed. SEED READY without package.json is not a dependency/browser pass.
+The browser doctor explicitly requires Chromium sandboxing. All 26 application
+criteria remain NOT RUN. See docs/VERIFICATION.md and docs/DELIVERY-STATUS.md
+for current results and actual launch blockers. The history below describes the
+original ZIP only, including its external helper tests and then-observed 404.
+
+SCOPE: the local preparation package, its structural report schema, hand-authored
+contract fixtures and setup/bootstrap helper behavior. These are NOT application,
+accessibility, browser, penetration, SEO or performance results.
+
+Historical result: 24 preparation tests passed in the original preparation container.
+No npm application dependencies or browsers were downloaded for these checks.
+The jsonschema Python package was already installed; no new service was created.
+
+Reproduce from the extracted ZIP directory with Python 3 and an already installed
+jsonschema preparation dependency:
+  python3 preparation-tests.py
+
+Dependency-free subset:
+  python3 a11y-workbench/scripts/validate-preparation.py
+
+Optional structural schema/format validation with already installed jsonschema:
+  python3 a11y-workbench/scripts/validate-preparation.py --schema
+
+Current preparation-container versions (NOT the target Codex Cloud environment):
+  python: Python 3.13.5
+  node: v22.16.0
+  npm: 10.9.2
+  git: git version 2.47.3
+  jsonschema: 4.26.0
+
+The seed setup helper reported SEED READY without downloading packages.
+The environment doctor correctly reported the application as NOT IMPLEMENTED.
+Its --browser path correctly returned BLOCKED without project dependencies;
+this negative-path test is not an actual Chromium launch.
+
+All 26 app acceptance criteria remain NOT RUN.
+Historical GitHub repository access: 404 in the original preparation session;
+superseded by verified current access to the existing PUBLIC repository.
+Repository creation/push: NOT DONE.
+Codex environment creation/publication/verification: NOT DONE.
+Codex coding-task launch: NOT DONE.
+Application implementation / lockfile / browser testing: NOT DONE.
+Public deployment / package publication / indexing / extra spending: NOT DONE.
+
+Full preparation test output:
+test_01_valid_bundles (__main__.SeedTests.test_01_valid_bundles) ... ok
+test_02_schema_itself (__main__.SeedTests.test_02_schema_itself) ... ok
+test_03_unknown_version (__main__.SeedTests.test_03_unknown_version) ... ok
+test_04_extra_sensitive_field (__main__.SeedTests.test_04_extra_sensitive_field) ... ok
+test_05_invalid_uuid (__main__.SeedTests.test_05_invalid_uuid) ... ok
+test_06_unsafe_identifier (__main__.SeedTests.test_06_unsafe_identifier) ... ok
+test_07_too_many_states (__main__.SeedTests.test_07_too_many_states) ... ok
+test_08_missing_pair (__main__.SeedTests.test_08_missing_pair) ... ok
+test_09_duplicate_state (__main__.SeedTests.test_09_duplicate_state) ... ok
+test_10_misleading_counts (__main__.SeedTests.test_10_misleading_counts) ... ok
+test_11_unknown_manual_check (__main__.SeedTests.test_11_unknown_manual_check) ... ok
+test_12_partial_needs_reason (__main__.SeedTests.test_12_partial_needs_reason) ... ok
+test_13_dry_run_no_writes (__main__.SeedTests.test_13_dry_run_no_writes) ... ok
+test_14_apply_idempotent (__main__.SeedTests.test_14_apply_idempotent) ... ok
+test_15_existing_readme_preserved (__main__.SeedTests.test_15_existing_readme_preserved) ... ok
+test_16_conflict_aborts_before_write (__main__.SeedTests.test_16_conflict_aborts_before_write) ... ok
+test_17_symlink_rejected (__main__.SeedTests.test_17_symlink_rejected) ... ok
+test_18_traversal_rejected (__main__.SeedTests.test_18_traversal_rejected) ... ok
+test_19_implementation_preserved (__main__.SeedTests.test_19_implementation_preserved) ... ok
+test_20_setup_helper_seed_mode (__main__.SeedTests.test_20_setup_helper_seed_mode) ... ok
+test_21_setup_bad_option_rejected (__main__.SeedTests.test_21_setup_bad_option_rejected) ... ok
+test_22_browser_not_falsely_passed (__main__.SeedTests.test_22_browser_not_falsely_passed) ... ok
+test_23_bash_syntax (__main__.SeedTests.test_23_bash_syntax) ... ok
+test_24_standard_and_schema_validator (__main__.SeedTests.test_24_standard_and_schema_validator) ... ok
+
+----------------------------------------------------------------------
+Ran 24 tests in 10.756s
+
+OK

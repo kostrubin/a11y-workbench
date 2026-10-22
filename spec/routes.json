@@ -1,0 +1,97 @@
+{
+  "version": "1",
+  "language": "en",
+  "defaultIndexable": false,
+  "routes": [
+    {
+      "path": "/",
+      "caseId": "home",
+      "purpose": "Understand the workflow and try a synthetic sample",
+      "eligibleAfterExplicitRelease": true
+    },
+    {
+      "path": "/workbench/",
+      "caseId": "workbench",
+      "purpose": "Import, inspect, compare, record manual checks and export",
+      "eligibleAfterExplicitRelease": false
+    },
+    {
+      "path": "/patterns/forms/",
+      "caseId": "pattern-forms",
+      "purpose": "Labels, validation recovery and success feedback",
+      "eligibleAfterExplicitRelease": true
+    },
+    {
+      "path": "/patterns/dialog/",
+      "caseId": "pattern-dialog",
+      "purpose": "Modal focus, keyboard containment, dismissal and return",
+      "eligibleAfterExplicitRelease": true
+    },
+    {
+      "path": "/patterns/menu-button/",
+      "caseId": "pattern-menu",
+      "purpose": "Action menu keyboard behavior and semantics",
+      "eligibleAfterExplicitRelease": true
+    },
+    {
+      "path": "/guides/read-axe-results/",
+      "caseId": "guide-read-axe",
+      "purpose": "Interpret the four outcome categories and coverage",
+      "eligibleAfterExplicitRelease": true
+    },
+    {
+      "path": "/guides/compare-reports/",
+      "caseId": "guide-compare",
+      "purpose": "Understand comparison identity, evidence and uncertainty",
+      "eligibleAfterExplicitRelease": true
+    },
+    {
+      "path": "/guides/form-errors/",
+      "caseId": "guide-form-errors",
+      "purpose": "Associate field errors and verify recovery",
+      "eligibleAfterExplicitRelease": true
+    },
+    {
+      "path": "/guides/dialog-focus/",
+      "caseId": "guide-dialog-focus",
+      "purpose": "Reproduce and test dialog focus behavior",
+      "eligibleAfterExplicitRelease": true
+    },
+    {
+      "path": "/guides/menu-or-disclosure/",
+      "caseId": "guide-menu-choice",
+      "purpose": "Choose appropriate action menu or disclosure semantics",
+      "eligibleAfterExplicitRelease": true
+    },
+    {
+      "path": "/guides/keyboard-review/",
+      "caseId": "guide-keyboard",
+      "purpose": "Perform a bounded keyboard review and record observations",
+      "eligibleAfterExplicitRelease": true
+    },
+    {
+      "path": "/docs/import-format/",
+      "caseId": "docs-import",
+      "purpose": "Supported format, schema, limits and exporter example",
+      "eligibleAfterExplicitRelease": true
+    },
+    {
+      "path": "/privacy/",
+      "caseId": "privacy",
+      "purpose": "Actual local data handling and export limitations",
+      "eligibleAfterExplicitRelease": true
+    },
+    {
+      "path": "/limitations/",
+      "caseId": "limitations",
+      "purpose": "Coverage, comparison, format and untested AT limitations",
+      "eligibleAfterExplicitRelease": true
+    },
+    {
+      "path": "/about/",
+      "caseId": "about",
+      "purpose": "Purpose, authorship, license and contribution boundaries",
+      "eligibleAfterExplicitRelease": true
+    }
+  ]
+}

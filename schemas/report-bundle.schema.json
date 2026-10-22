@@ -1,0 +1,520 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "normalizationVersion",
+    "reportId",
+    "createdAt",
+    "producer",
+    "identity",
+    "states"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0"
+    },
+    "normalizationVersion": {
+      "const": "1"
+    },
+    "reportId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "Z$"
+    },
+    "producer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "version"
+      ],
+      "properties": {
+        "name": {
+          "enum": [
+            "a11y-workbench",
+            "axe-import"
+          ]
+        },
+        "version": {
+          "type": "string",
+          "maxLength": 128,
+          "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?(?:\\+[0-9A-Za-z.-]+)?$"
+        }
+      }
+    },
+    "identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "namespace",
+        "method"
+      ],
+      "properties": {
+        "namespace": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "method": {
+          "enum": [
+            "explicit",
+            "hmac-sha256-v1"
+          ]
+        }
+      }
+    },
+    "states": {
+      "type": "array",
+      "minItems": 0,
+      "maxItems": 50,
+      "items": {
+        "$ref": "#/$defs/state"
+      }
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "A11y Workbench canonical bundle v1.0",
+  "$comment": "Structure only. Enforce the cross-field and aggregate invariants in docs/ARCHITECTURE.md. No remote schema retrieval is required. Fixture producer/engine declarations are not authenticated evidence.",
+  "$defs": {
+    "capture": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "engine",
+        "rulesetId",
+        "rulesetDigest",
+        "scopeId",
+        "environmentDigest",
+        "completeness",
+        "executedRuleIds",
+        "observedSubjectIds",
+        "evaluatedPairs",
+        "reasonCodes"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "complete",
+            "partial",
+            "error"
+          ]
+        },
+        "engine": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "name",
+            "version"
+          ],
+          "properties": {
+            "name": {
+              "const": "axe-core"
+            },
+            "version": {
+              "type": "string",
+              "maxLength": 128,
+              "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?(?:\\+[0-9A-Za-z.-]+)?$"
+            }
+          }
+        },
+        "rulesetId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "rulesetDigest": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "scopeId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "environmentDigest": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "completeness": {
+          "enum": [
+            "producer-attested",
+            "unknown"
+          ]
+        },
+        "executedRuleIds": {
+          "type": "array",
+          "minItems": 0,
+          "maxItems": 1000,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+          },
+          "uniqueItems": true
+        },
+        "observedSubjectIds": {
+          "type": "array",
+          "minItems": 0,
+          "maxItems": 10000,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+          },
+          "uniqueItems": true
+        },
+        "evaluatedPairs": {
+          "type": "array",
+          "minItems": 0,
+          "maxItems": 10000,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "ruleId",
+              "subjectId",
+              "outcome"
+            ],
+            "properties": {
+              "ruleId": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+              },
+              "subjectId": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+              },
+              "outcome": {
+                "enum": [
+                  "pass",
+                  "violation",
+                  "incomplete"
+                ]
+              }
+            }
+          }
+        },
+        "reasonCodes": {
+          "type": "array",
+          "minItems": 0,
+          "maxItems": 8,
+          "items": {
+            "enum": [
+              "capture-error",
+              "timeout",
+              "blocked-resource",
+              "missing-config",
+              "missing-scope",
+              "unsupported-context",
+              "duplicate-subject",
+              "truncated-source"
+            ]
+          },
+          "uniqueItems": true
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "complete"
+              },
+              "completeness": {
+                "const": "producer-attested"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "rulesetId": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+              },
+              "scopeId": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+              },
+              "rulesetDigest": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "environmentDigest": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "partial",
+                  "error"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "reasonCodes": {
+                "minItems": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    "finding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ruleId",
+        "subjectId",
+        "category",
+        "impact",
+        "checks"
+      ],
+      "properties": {
+        "ruleId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+        },
+        "subjectId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+        },
+        "category": {
+          "enum": [
+            "violation",
+            "incomplete"
+          ]
+        },
+        "impact": {
+          "enum": [
+            "minor",
+            "moderate",
+            "serious",
+            "critical",
+            null
+          ]
+        },
+        "checks": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "any",
+            "all",
+            "none"
+          ],
+          "properties": {
+            "any": {
+              "type": "array",
+              "minItems": 0,
+              "maxItems": 100,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+              },
+              "uniqueItems": true
+            },
+            "all": {
+              "type": "array",
+              "minItems": 0,
+              "maxItems": 100,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+              },
+              "uniqueItems": true
+            },
+            "none": {
+              "type": "array",
+              "minItems": 0,
+              "maxItems": 100,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+              },
+              "uniqueItems": true
+            }
+          }
+        }
+      }
+    },
+    "manualCheck": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "checkId",
+        "status",
+        "reportedBy"
+      ],
+      "properties": {
+        "checkId": {
+          "enum": [
+            "keyboard.complete",
+            "focus.visible",
+            "form.errors",
+            "dialog.context",
+            "menu.discovery",
+            "zoom.reflow",
+            "motion.preference",
+            "screen-reader.feedback"
+          ]
+        },
+        "status": {
+          "enum": [
+            "not-run",
+            "pass",
+            "fail",
+            "not-applicable"
+          ]
+        },
+        "reportedBy": {
+          "const": "user"
+        }
+      }
+    },
+    "counts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ruleCount",
+        "nodeCount"
+      ],
+      "properties": {
+        "ruleCount": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000
+        },
+        "nodeCount": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10000
+        }
+      }
+    },
+    "state": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "stateId",
+        "patternId",
+        "capture",
+        "findings",
+        "manualChecks",
+        "reportedOutcomes"
+      ],
+      "properties": {
+        "stateId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+        },
+        "patternId": {
+          "enum": [
+            "forms",
+            "dialog",
+            "menu",
+            "unspecified"
+          ]
+        },
+        "capture": {
+          "$ref": "#/$defs/capture"
+        },
+        "findings": {
+          "type": "array",
+          "minItems": 0,
+          "maxItems": 10000,
+          "items": {
+            "$ref": "#/$defs/finding"
+          }
+        },
+        "manualChecks": {
+          "type": "array",
+          "minItems": 0,
+          "maxItems": 2000,
+          "items": {
+            "$ref": "#/$defs/manualCheck"
+          }
+        },
+        "reportedOutcomes": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "violations",
+            "incomplete",
+            "passes",
+            "inapplicable"
+          ],
+          "properties": {
+            "violations": {
+              "$ref": "#/$defs/counts"
+            },
+            "incomplete": {
+              "$ref": "#/$defs/counts"
+            },
+            "passes": {
+              "$ref": "#/$defs/counts"
+            },
+            "inapplicable": {
+              "$ref": "#/$defs/counts"
+            }
+          }
+        }
+      }
+    }
+  }
+}

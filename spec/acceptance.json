@@ -1,0 +1,162 @@
+{
+  "version": "1",
+  "kind": "implementation-acceptance-not-executed",
+  "criteria": [
+    {
+      "id": "E2E-01",
+      "requirement": "A new visitor opens the synthetic sample without signing in. State, engine, capture scope, automated outcome categories, and outstanding manual work are visible.",
+      "status": "NOT RUN",
+      "evidence": []
+    },
+    {
+      "id": "E2E-02",
+      "requirement": "Import `raw-axe-synthetic` by file picker and by drop. Both yield identical separate violation/incomplete/pass/inapplicable counts; finding totals agree with reported outcomes. Source content stays inert. Reload clears imported data.",
+      "status": "NOT RUN",
+      "evidence": []
+    },
+    {
+      "id": "E2E-03",
+      "requirement": "Import `baseline-v1`, then `candidate-v1`. The diff matches the fixture table, filters preserve totals, and selecting a finding reveals its state and comparison rationale.",
+      "status": "NOT RUN",
+      "evidence": []
+    },
+    {
+      "id": "E2E-04",
+      "requirement": "Compare each incomplete/incompatible fixture. The UI explains why reliable conclusions cannot be drawn and does not display a misleading resolved/improvement total. The finding-change fixture exposes its supported change separately.",
+      "status": "NOT RUN",
+      "evidence": []
+    },
+    {
+      "id": "E2E-05",
+      "requirement": "With `manual-unrun`, zero automated violations leaves all manual checks `not-run`. A user marks pass/fail/not-applicable with evidence/reason, changes it again, and sees the report identify the result as user-reported.",
+      "status": "NOT RUN",
+      "evidence": []
+    },
+    {
+      "id": "E2E-06",
+      "requirement": "Export JSON and escaped Markdown after changing manual statuses. Both obey the same allowlist and omit notes, tester context, and sensitive canaries. Only JSON reimports; statuses survive with observation details explicitly absent. No conformance claim appears.",
+      "status": "NOT RUN",
+      "evidence": []
+    },
+    {
+      "id": "E2E-07",
+      "requirement": "In the corrected form, submit empty/invalid input, discover field errors, correct them using the keyboard, and reach local success. No network submission occurs and entered values survive validation recovery.",
+      "status": "NOT RUN",
+      "evidence": []
+    },
+    {
+      "id": "E2E-08",
+      "requirement": "Open the corrected modal with the keyboard, inspect initial focus, cycle forward/backward within it, cancel with Escape, reopen, save, and verify focus returns to the opener. Background controls cannot be activated while modal.",
+      "status": "NOT RUN",
+      "evidence": []
+    },
+    {
+      "id": "E2E-09",
+      "requirement": "Open the corrected action menu with Enter and Space in separate runs, navigate items, activate a command, reopen, and dismiss with Escape. State and focus follow documented behavior.",
+      "status": "NOT RUN",
+      "evidence": []
+    },
+    {
+      "id": "E2E-10",
+      "requirement": "Switch broken/corrected variants for all three patterns. The lesson shows a reproducible difference and the outside reset/escape controls remain operable. Deliberate failures are clearly separated from app defects.",
+      "status": "NOT RUN",
+      "evidence": []
+    },
+    {
+      "id": "E2E-11",
+      "requirement": "Run the local capture command against the built app's synthetic fixtures. Its bundled recipe may submit only the local synthetic form and activate local synthetic commands. Nine named states are produced and imported successfully. A controlled missing page/scan failure returns a failure or incomplete capture, never an empty pass.",
+      "status": "NOT RUN",
+      "evidence": []
+    },
+    {
+      "id": "E2E-12",
+      "requirement": "Clear the workspace after import and manual edits. Results, local notes, and comparison state disappear; the app is usable for a fresh import. No original data reappears after reload.",
+      "status": "NOT RUN",
+      "evidence": []
+    },
+    {
+      "id": "SEC-01",
+      "requirement": "Network observation proves imported content, filenames, manual notes, canary URLs, and derived identifiers are not transmitted. Same-origin asset requests are permitted; no analytics, telemetry, remote fonts, or runtime API calls.",
+      "status": "NOT RUN",
+      "evidence": []
+    },
+    {
+      "id": "SEC-02",
+      "requirement": "Import and render `hostile-import`. No script, HTML, navigation, external-resource load, prototype mutation, or file execution occurs. Unsafe protocols cannot become actionable links.",
+      "status": "NOT RUN",
+      "evidence": []
+    },
+    {
+      "id": "SEC-03",
+      "requirement": "Before processing, reject oversized files; enforce structural/string/count limits; unknown versions and duplicate identities fail clearly. Last valid workspace survives invalid import. No silent truncation produces a success report.",
+      "status": "NOT RUN",
+      "evidence": []
+    },
+    {
+      "id": "SEC-04",
+      "requirement": "Every P0 export contains only allowed normalized fields. Assert absence of synthetic sensitive canaries, raw source fields, local identity keys, tester/AT context, and free-text notes. Markdown cannot introduce imported links, HTML, or executable content.",
+      "status": "NOT RUN",
+      "evidence": []
+    },
+    {
+      "id": "SEC-05",
+      "requirement": "A namespace/key mismatch cannot fabricate identity matches. The UI identifies pseudonymous fingerprints honestly and warns about export contents without claiming anonymity.",
+      "status": "NOT RUN",
+      "evidence": []
+    },
+    {
+      "id": "SEC-06",
+      "requirement": "Built application and repository contain no real credentials, personal captures, account storage states, source maps exposing secrets, or deployment credentials. Dependency and license findings are recorded, with material issues resolved or raised under owner policy.",
+      "status": "NOT RUN",
+      "evidence": []
+    },
+    {
+      "id": "UX-01",
+      "requirement": "Keyboard-only traversal completes import, filtering, comparison, manual edits, export, and clear. Focus stays visible and returns predictably after overlays. Error/success announcements are asserted structurally.",
+      "status": "NOT RUN",
+      "evidence": []
+    },
+    {
+      "id": "UX-02",
+      "requirement": "Inspect screenshots and browser behavior at 390 px and 1280 px widths, with reduced motion and 320 px reflow. Check actual browser zoom at 200% where available; CSS zoom or device pixel ratio is not equivalent evidence, so record actual zoom as `NOT RUN` if unavailable. Core actions remain reachable; no clipped text or inaccessible results controls.",
+      "status": "NOT RUN",
+      "evidence": []
+    },
+    {
+      "id": "UX-03",
+      "requirement": "Run app-shell and corrected-pattern axe checks plus targeted behavior assertions in the documented browser matrix. Chromium covers all E2E; Firefox/WebKit cover the three corrected patterns and import/export smoke checks when executable. Unavailable engines are `NOT RUN`, not passed.",
+      "status": "NOT RUN",
+      "evidence": []
+    },
+    {
+      "id": "PERF-01",
+      "requirement": "On a documented environment, run a small report and a near-limit synthetic report three times. Record input size, parse/diff time, peak behavior, and responsiveness. A failed/oversized file cannot crash the tab or permanently block controls.",
+      "status": "NOT RUN",
+      "evidence": []
+    },
+    {
+      "id": "PERF-02",
+      "requirement": "Target small-report readiness within 1 second and near-limit completion within 5 seconds on the documented reference runner. Report actual measurements and any deviation. Heavy work is chunked/off-thread; controls respond during it. These laboratory targets are not field Core Web Vitals claims.",
+      "status": "NOT RUN",
+      "evidence": []
+    },
+    {
+      "id": "SEO-01",
+      "requirement": "Static export contains all fifteen exact routes from `DESIGN-SEO.md`, with complete titles, descriptions, primary headings, explanatory text, crawlable internal links, and working examples for three patterns and six guides. Educational text is useful without waiting for application hydration; interactive demonstrations may require JavaScript.",
+      "status": "NOT RUN",
+      "evidence": []
+    },
+    {
+      "id": "SEO-02",
+      "requirement": "Inspect preview robots/canonical/sitemap output. All default builds remain non-indexable. Public indexing and absolute production URLs require both an approved public HTTPS origin and a separate release flag; `/workbench/` stays non-indexable after release. No placeholder host leaks into a publishable build.",
+      "status": "NOT RUN",
+      "evidence": []
+    },
+    {
+      "id": "SEO-03",
+      "requirement": "Check internal links, refresh/deep links, not-found behavior, and code/example consistency. No empty mass-generated pages, fake structured-data claims, or ranking guarantees.",
+      "status": "NOT RUN",
+      "evidence": []
+    }
+  ]
+}
