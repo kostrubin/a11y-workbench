@@ -4,7 +4,7 @@
   "phase": "prepared-not-implemented",
   "lastCompletedMilestone": null,
   "completedAcceptanceIds": [],
-  "nextAction": "Review and commit the reconciled source/documents, push normally to the public kostrubin/a11y-workbench working branch, then continue authenticated private Cloud environment preparation and submit the full implementation prompt before beginning M0.",
+  "nextAction": "Continue authenticated private Cloud environment preparation on branch work, submit the complete current implementation prompt and verify its task URL/running status before beginning M0. The reviewed public-source preparation checkpoint has already been pushed.",
   "implementationChecksRun": [],
   "knownBlockers": [
     "Codex CLI Cloud task-list request returned 401 Unauthorized; device authorization failed before a secure login interface was created.",
@@ -15,6 +15,9 @@
   "repository": {
     "url": "https://github.com/kostrubin/a11y-workbench",
     "visibility": "public",
+    "workingBranch": "work",
+    "verifiedSourceCheckpoint": "fcbf0e65c9391adad3d3ec36fa83e12d1f62bab7",
+    "sourcePushVerified": true,
     "sourcePublicationAuthorized": true,
     "allowedContent": ["reviewed project source", "project documentation", "tests", "reviewed synthetic examples"],
     "ordinaryWorkingBranchCommitsAndPushesAuthorized": true,
